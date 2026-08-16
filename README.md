@@ -32,8 +32,21 @@ vérifie tout seul s'il y a des mods à mettre à jour.
 
 Tout se pilote depuis **un seul fichier** : [`manifest/manifest.json`](manifest/manifest.json).
 Dès que tu le modifies et que tu le pousses sur la branche `main` de ce dépôt,
-le launcher de tous tes potes va le voir au prochain clic sur "Rejoindre le
-serveur" et se mettre à jour tout seul.
+le launcher de tous tes potes va le voir et se mettre à jour tout seul (au
+prochain démarrage pour les infos, au prochain clic sur "Rejoindre le
+serveur" pour les mods).
+
+⚠️ GitHub garde parfois une version en cache jusqu'à ~5 minutes après un
+push (`raw.githubusercontent.com`) — si un changement n'apparaît pas tout de
+suite, c'est normal, il suffit de patienter un peu.
+
+### Infos pour les joueurs
+
+Le champ `"info"` du manifest s'affiche dans un panneau dédié (bouton ℹ️ en
+haut de l'écran principal du launcher), pratique pour prévenir tout le monde
+d'une info importante (règles, date de l'aventure, changement de serveur...)
+sans repasser par Discord. Laisse-le vide (`"info": ""`) pour masquer le
+bouton.
 
 ### Ajouter ou mettre à jour un mod
 
