@@ -1,0 +1,10 @@
+node_modules/
+release/
+dist/
+*.log
+.DS_Store
+Thumbs.db
+
+# Dossiers de jeu potentiellement générés pendant des tests locaux
+/instance/
+/.minecraft-dev/

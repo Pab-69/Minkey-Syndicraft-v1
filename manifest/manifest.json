@@ -1,0 +1,21 @@
+{
+  "modpackVersion": "1.0.0",
+  "minecraft": {
+    "version": "1.20.1",
+    "type": "release",
+    "modLoader": "fabric",
+    "loaderVersion": "latest"
+  },
+  "server": {
+    "address": "play.minkey-syndicraft.example",
+    "port": 25565
+  },
+  "files": [
+    {
+      "name": "Fabric API",
+      "path": "mods/fabric-api-0.92.0+1.20.1.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods/fabric-api-0.92.0+1.20.1.jar",
+      "sha1": "REMPLACE_MOI_PAR_LE_VRAI_SHA1"
+    }
+  ]
+}

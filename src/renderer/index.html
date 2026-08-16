@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:;" />
+  <title>Minkey Syndicraft Launcher</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- Ecran de connexion -->
+    <section id="screen-login" class="screen">
+      <div class="brand">
+        <h1>Minkey Syndicraft</h1>
+        <p class="subtitle">Le launcher moddé de la bande. Connecte-toi pour continuer.</p>
+      </div>
+
+      <div class="login-cards">
+        <div class="card">
+          <h2>Compte Microsoft</h2>
+          <p>Tu as acheté Minecraft ? Connecte-toi avec ton compte officiel.</p>
+          <button id="btn-login-microsoft" class="btn btn-primary">Se connecter avec Microsoft</button>
+        </div>
+
+        <div class="card">
+          <h2>Sans compte (crack)</h2>
+          <p>Choisis simplement un pseudo pour rejoindre la partie.</p>
+          <input id="input-offline-username" type="text" placeholder="Ton pseudo (3-16 caractères)" maxlength="16" />
+          <button id="btn-login-offline" class="btn btn-secondary">Continuer</button>
+        </div>
+      </div>
+
+      <p id="login-error" class="error hidden"></p>
+    </section>
+
+    <!-- Ecran de choix du skin -->
+    <section id="screen-skin" class="screen">
+      <div class="brand">
+        <h1>Choisis ton skin</h1>
+        <p class="subtitle">Optionnel, tu peux changer ça plus tard.</p>
+      </div>
+
+      <div class="skin-layout">
+        <div class="skin-preview">
+          <img id="skin-preview-img" alt="Aperçu du skin" />
+        </div>
+
+        <div class="skin-options">
+          <button id="btn-skin-upload" class="btn btn-secondary">Importer une image (.png)</button>
+
+          <div class="skin-username-row">
+            <input id="input-skin-username" type="text" placeholder="Pseudo Minecraft à copier" />
+            <button id="btn-skin-username" class="btn btn-secondary">Récupérer</button>
+          </div>
+
+          <p id="skin-error" class="error hidden"></p>
+        </div>
+      </div>
+
+      <div class="skin-actions">
+        <button id="btn-skin-skip" class="btn btn-ghost">Passer cette étape</button>
+        <button id="btn-skin-continue" class="btn btn-primary">Continuer</button>
+      </div>
+    </section>
+
+    <!-- Ecran principal -->
+    <section id="screen-home" class="screen">
+      <header class="topbar">
+        <div class="account-info">
+          <img id="account-avatar" alt="Skin" />
+          <div>
+            <div id="account-name" class="account-name">-</div>
+            <div id="account-type" class="account-type">-</div>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <button id="btn-open-settings" class="btn btn-icon" title="Réglages">⚙️</button>
+        </div>
+      </header>
+
+      <div class="play-area">
+        <button id="btn-play" class="btn-play">
+          <span id="btn-play-label">REJOINDRE LE SERVEUR</span>
+        </button>
+
+        <div id="status-text" class="status-text"></div>
+        <div class="progress-bar">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </div>
+
+      <details class="log-panel">
+        <summary>Journal (pour le debug)</summary>
+        <pre id="log-content"></pre>
+      </details>
+
+      <div id="settings-panel" class="settings-panel hidden">
+        <h3>Réglages</h3>
+
+        <div class="settings-row">
+          <label for="memory-slider">Mémoire allouée : <span id="memory-value">4</span> Go</label>
+          <input id="memory-slider" type="range" min="2" max="16" step="1" />
+        </div>
+
+        <div class="settings-row settings-buttons">
+          <button id="btn-change-skin" class="btn btn-secondary">Changer de skin</button>
+          <button id="btn-open-folder" class="btn btn-secondary">Ouvrir le dossier du jeu</button>
+          <button id="btn-logout" class="btn btn-ghost">Se déconnecter</button>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="renderer.js"></script>
+</body>
+</html>
