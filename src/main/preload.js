@@ -11,6 +11,9 @@ contextBridge.exposeInMainWorld('launcher', {
   checkUpdate: () => ipcRenderer.invoke('app:check-update'),
   openUpdateLink: () => ipcRenderer.invoke('app:open-update-link'),
 
+  // Infos du serveur (definies par l'hote dans le manifest)
+  getInfo: () => ipcRenderer.invoke('info:get'),
+
   // Reglages
   getSettings: () => ipcRenderer.invoke('settings:get'),
   setMemory: (minGb, maxGb) => ipcRenderer.invoke('settings:set-memory', { minGb, maxGb }),

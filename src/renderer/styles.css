@@ -387,6 +387,38 @@ input[type="text"]:focus {
   margin: 8px 0 0 0;
 }
 
+.info-panel {
+  margin-top: 16px;
+  background: rgba(28, 30, 43, 0.72);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px 20px;
+}
+
+.info-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.info-panel-header h3 {
+  margin: 0;
+  font-size: 15px;
+}
+
+.info-text {
+  margin: 12px 0 0 0;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-dim);
+  white-space: pre-wrap;
+  max-height: 220px;
+  overflow-y: auto;
+}
+
 .settings-panel {
   margin-top: 16px;
   background: var(--bg-elevated);

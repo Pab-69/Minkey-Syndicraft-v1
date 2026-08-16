@@ -139,6 +139,7 @@ async function refreshAccountBadge() {
 
 el('btn-open-settings').addEventListener('click', () => {
   el('settings-panel').classList.toggle('hidden');
+  el('info-panel').classList.add('hidden');
 });
 
 el('btn-change-skin').addEventListener('click', () => {
@@ -277,6 +278,27 @@ async function checkForUpdate() {
   el('update-banner').classList.remove('hidden');
 }
 
+// --- Infos du serveur ---
+
+el('btn-open-info').addEventListener('click', () => {
+  el('info-panel').classList.toggle('hidden');
+  el('settings-panel').classList.add('hidden');
+});
+
+el('btn-close-info').addEventListener('click', () => {
+  el('info-panel').classList.add('hidden');
+});
+
+async function loadInfo() {
+  const result = await window.launcher.getInfo();
+  if (!result || !result.text) {
+    el('btn-open-info').classList.add('hidden');
+    return;
+  }
+  el('info-text').textContent = result.text;
+  el('btn-open-info').classList.remove('hidden');
+}
+
 // --- Initialisation ---
 
 async function init() {
@@ -294,6 +316,7 @@ async function init() {
   }
 
   checkForUpdate();
+  loadInfo();
 }
 
 init();

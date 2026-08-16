@@ -10,30 +10,13 @@
     "address": "play.minkey-syndicraft.example",
     "port": 25565
   },
+  "info": "Bienvenue sur Minkey Syndicraft !\n\nAjoute ici les dernières infos pour la bande (règles, date de l'aventure, changements récents...). Ce texte est modifiable à tout moment dans manifest.json et se met à jour tout seul chez tout le monde.",
   "files": [
     {
       "name": "Fabric API",
       "path": "mods/fabric-api-0.92.11+1.20.1.jar",
       "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/fabric-api-0.92.11+1.20.1.jar",
       "sha1": "2824689367eec2b52c6085e968343751137e66bf"
-    },
-    {
-      "name": "FancyMenu",
-      "path": "mods/fancymenu_fabric_3.9.10_MC_1.20.1.jar",
-      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/fancymenu_fabric_3.9.10_MC_1.20.1.jar",
-      "sha1": "95a9034e7eb5dfe248b070ae7a9c1319c9b4a8c1"
-    },
-    {
-      "name": "Konkrete (dépendance de FancyMenu)",
-      "path": "mods/konkrete_fabric_1.8.1_MC_1.20.1.jar",
-      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/konkrete_fabric_1.8.1_MC_1.20.1.jar",
-      "sha1": "38d3201d95a08bdeb12a8cd3687c6d0b8f5e7f3d"
-    },
-    {
-      "name": "Melody (dépendance de FancyMenu)",
-      "path": "mods/melody_fabric_1.0.4_MC_1.20.1-1.20.4.jar",
-      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/melody_fabric_1.0.4_MC_1.20.1-1.20.4.jar",
-      "sha1": "15eeff0c0fd8b4734492915c656077592b2d9e67"
     }
   ]
 }

@@ -91,9 +91,18 @@
               <div id="account-type" class="account-type">-</div>
             </div>
           </div>
+          <button id="btn-open-info" class="btn btn-icon hidden" title="Infos du serveur">ℹ️</button>
           <button id="btn-open-settings" class="btn btn-icon" title="Réglages">⚙️</button>
         </div>
       </header>
+
+      <div id="info-panel" class="info-panel hidden">
+        <div class="info-panel-header">
+          <h3>Infos du serveur</h3>
+          <button id="btn-close-info" class="btn btn-icon" title="Fermer">✕</button>
+        </div>
+        <pre id="info-text" class="info-text"></pre>
+      </div>
 
       <div class="play-area">
         <button id="btn-play" class="btn-play">

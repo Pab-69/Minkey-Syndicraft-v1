@@ -3,7 +3,7 @@ const config = require('./config');
 const store = require('./store');
 const offlineAuth = require('./auth/offline');
 const microsoftAuth = require('./auth/microsoft');
-const { syncMods } = require('./mods/sync');
+const { syncMods, fetchManifest } = require('./mods/sync');
 const { launchGame } = require('./game/launch');
 const skinManager = require('./skins/skinManager');
 const { checkForLauncherUpdate } = require('./updateCheck');
@@ -29,6 +29,16 @@ function registerIpcHandlers(mainWindow) {
   ipcMain.handle('app:open-update-link', async () => {
     if (lastKnownUpdate) await shell.openExternal(lastKnownUpdate.url);
     return { ok: true };
+  });
+
+  ipcMain.handle('info:get', async () => {
+    try {
+      const manifestUrl = store.get('manifestUrl') || config.DEFAULT_MANIFEST_URL;
+      const manifest = await fetchManifest(manifestUrl);
+      return { text: manifest.info || null };
+    } catch {
+      return { text: null };
+    }
   });
 
   ipcMain.handle('settings:get', () => {

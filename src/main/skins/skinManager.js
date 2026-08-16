@@ -1,7 +1,7 @@
 const fs = require('fs');
 const fsp = fs.promises;
 const path = require('path');
-const { app, dialog } = require('electron');
+const { app, dialog, nativeImage } = require('electron');
 const { Readable } = require('stream');
 const { pipeline } = require('stream/promises');
 const config = require('../config');
@@ -56,7 +56,7 @@ async function pickSkinFile() {
   await fsp.mkdir(path.dirname(dest), { recursive: true });
   await fsp.copyFile(sourcePath, dest);
 
-  return { previewDataUrl: await toDataUrl(dest), source: 'upload' };
+  return { previewDataUrl: await toHeadDataUrl(dest), source: 'upload' };
 }
 
 async function setSkinFromUsername(username) {
@@ -72,18 +72,23 @@ async function setSkinFromUsername(username) {
   await pipeline(Readable.fromWeb(res.body), fs.createWriteStream(tmp));
   await fsp.rename(tmp, dest);
 
-  return { previewDataUrl: await toDataUrl(dest), source: 'username', sourceUsername: username };
+  return { previewDataUrl: await toHeadDataUrl(dest), source: 'username', sourceUsername: username };
 }
 
-async function toDataUrl(filePath) {
+// Recadre uniquement la tete (face avant, 8x8px) depuis la feuille de skin,
+// pour l'afficher comme petite icone a cote du pseudo plutot que le skin
+// entier a plat. La mise a l'echelle "pixelisee" se fait cote CSS.
+async function toHeadDataUrl(filePath) {
   const buffer = await fsp.readFile(filePath);
-  return `data:image/png;base64,${buffer.toString('base64')}`;
+  const image = nativeImage.createFromBuffer(buffer);
+  const head = image.crop({ x: 8, y: 8, width: 8, height: 8 });
+  return head.toDataURL();
 }
 
 async function getSkinPreview() {
   const dest = currentSkinPath();
   if (!fs.existsSync(dest)) return null;
-  return { previewDataUrl: await toDataUrl(dest) };
+  return { previewDataUrl: await toHeadDataUrl(dest) };
 }
 
 async function clearSkin() {
