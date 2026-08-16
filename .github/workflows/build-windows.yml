@@ -24,6 +24,18 @@ jobs:
 
       - run: npm ci
 
+      # GitHub exige que le tag existe deja pour pouvoir publier une release
+      # directement (pas en brouillon) : on le cree/pousse avant le build.
+      - name: Cree le tag de version (sur main)
+        if: github.ref == 'refs/heads/main'
+        shell: bash
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git tag "v$VERSION" 2>/dev/null || echo "Tag v$VERSION deja existant"
+          git push origin "v$VERSION" 2>/dev/null || echo "Tag v$VERSION deja pousse"
+
       # Sur `main`, publie automatiquement une Release GitHub (lien stable
       # .../releases/latest) avec le GITHUB_TOKEN fourni par Actions, pour
       # que le launcher puisse detecter les mises a jour de lui-meme.
