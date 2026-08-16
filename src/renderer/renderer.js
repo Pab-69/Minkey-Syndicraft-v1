@@ -182,27 +182,33 @@ const STATE_LABELS = {
   error: 'Une erreur est survenue.'
 };
 
+let currentPlayMode = 'server';
+
 function resetPlayButton() {
-  const button = el('btn-play');
-  button.disabled = false;
+  el('btn-play').disabled = false;
+  el('btn-play-solo').disabled = false;
   el('btn-play-label').textContent = 'REJOINDRE LE SERVEUR';
   el('status-text').textContent = '';
   el('progress-fill').style.width = '0%';
   el('progress-fill').classList.remove('error');
 }
 
-el('btn-play').addEventListener('click', async () => {
-  const button = el('btn-play');
-  button.disabled = true;
-  el('btn-play-label').textContent = 'LANCEMENT...';
+async function startPlay(mode) {
+  currentPlayMode = mode;
+  el('btn-play').disabled = true;
+  el('btn-play-solo').disabled = true;
+  el('btn-play-label').textContent = mode === 'solo' ? 'LANCEMENT DU SOLO...' : 'LANCEMENT...';
   el('progress-fill').classList.remove('error');
 
-  const result = await window.launcher.play();
+  const result = await window.launcher.play(mode);
   if (!result.ok) {
     // L'etat "error" a deja ete envoye via les evenements, rien a faire ici.
     return;
   }
-});
+}
+
+el('btn-play').addEventListener('click', () => startPlay('server'));
+el('btn-play-solo').addEventListener('click', () => startPlay('solo'));
 
 window.launcher.onState((payload) => {
   const { state: gameState, message } = payload;
@@ -213,7 +219,7 @@ window.launcher.onState((payload) => {
   }
 
   if (gameState === 'playing') {
-    el('btn-play-label').textContent = 'EN JEU';
+    el('btn-play-label').textContent = currentPlayMode === 'solo' ? 'EN JEU (SOLO)' : 'EN JEU';
     el('status-text').textContent = STATE_LABELS.playing;
     el('progress-fill').style.width = '100%';
     return;
@@ -221,6 +227,7 @@ window.launcher.onState((payload) => {
 
   if (gameState === 'error') {
     el('btn-play').disabled = false;
+    el('btn-play-solo').disabled = false;
     el('btn-play-label').textContent = 'REJOINDRE LE SERVEUR';
     el('status-text').textContent = message || STATE_LABELS.error;
     el('progress-fill').classList.add('error');
@@ -228,7 +235,7 @@ window.launcher.onState((payload) => {
     return;
   }
 
-  el('btn-play-label').textContent = 'LANCEMENT...';
+  el('btn-play-label').textContent = currentPlayMode === 'solo' ? 'LANCEMENT DU SOLO...' : 'LANCEMENT...';
   el('status-text').textContent = STATE_LABELS[gameState] || gameState;
 });
 

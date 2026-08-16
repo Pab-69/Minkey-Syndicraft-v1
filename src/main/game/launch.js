@@ -16,9 +16,11 @@ function resolveQuickPlay(server, mcVersion) {
   };
 }
 
-// Prepare (Java, Fabric/Forge) puis lance Minecraft directement connecte
-// sur le serveur defini dans le manifest. Retourne le processus enfant.
-async function launchGame({ manifest, authorization, memoryMinGb, memoryMaxGb, onProgress, onLog }) {
+// Prepare (Java, Fabric/Forge) puis lance Minecraft. Par defaut connecte
+// directement sur le serveur defini dans le manifest ; en mode solo, ignore
+// le serveur pour permettre de tester le modpack en jeu solo. Retourne le
+// processus enfant.
+async function launchGame({ manifest, authorization, memoryMinGb, memoryMaxGb, onProgress, onLog, solo }) {
   const report = (payload) => {
     if (onProgress) onProgress(payload);
   };
@@ -75,7 +77,7 @@ async function launchGame({ manifest, authorization, memoryMinGb, memoryMaxGb, o
       max: `${memoryMaxGb}G`
     },
     forge: forgeInstallerPath,
-    quickPlay: resolveQuickPlay(manifest.server, mcVersion),
+    quickPlay: solo ? undefined : resolveQuickPlay(manifest.server, mcVersion),
     overrides: {
       detached: true
     }

@@ -100,8 +100,9 @@ function registerIpcHandlers(mainWindow) {
     return { ok: true };
   });
 
-  ipcMain.handle('game:play', async () => {
+  ipcMain.handle('game:play', async (_event, mode) => {
     if (isPlaying) return { ok: false, error: 'Le jeu est deja en cours de lancement.' };
+    const solo = mode === 'solo';
 
     const account = store.get('account');
     if (!account) {
@@ -137,7 +138,8 @@ function registerIpcHandlers(mainWindow) {
         memoryMinGb: minGb,
         memoryMaxGb: maxGb,
         onProgress: sendProgress,
-        onLog: sendLog
+        onLog: sendLog,
+        solo
       });
 
       sendState('playing');
