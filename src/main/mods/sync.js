@@ -10,7 +10,13 @@ const config = require('../config');
 // C'est le seul fichier que l'hote a besoin de modifier pour mettre a jour
 // tout le monde : il suffit de le pousser sur GitHub (ou n'importe quel serveur web).
 async function fetchManifest(manifestUrl) {
-  const res = await fetch(manifestUrl, { cache: 'no-store' });
+  // Un timestamp en parametre garantit une URL toujours differente, pour
+  // eviter qu'un cache intermediaire (proxy reseau, CDN...) ne serve une
+  // version perimee du manifest malgre "cache: no-store".
+  const separator = manifestUrl.includes('?') ? '&' : '?';
+  const bustedUrl = `${manifestUrl}${separator}_=${Date.now()}`;
+
+  const res = await fetch(bustedUrl, { cache: 'no-store' });
   if (!res.ok) {
     throw new Error(`Impossible de recuperer le manifest (HTTP ${res.status}).`);
   }
