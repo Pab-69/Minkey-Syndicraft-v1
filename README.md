@@ -12,9 +12,11 @@ que tout le monde ait exactement les mêmes mods avant l'aventure annuelle.
 
 ## Pour tes potes (les joueurs)
 
-1. Récupérer l'installeur (`.exe` sur Windows, `.dmg` sur Mac, `.AppImage` sur
-   Linux) que toi (l'hôte) leur partages.
-2. L'installer et le lancer.
+1. Récupérer l'installeur que toi (l'hôte) leur partages : un seul fichier
+   `MinkeySyndicraftLauncher-Setup-x.x.x.exe` sur Windows (`.dmg` sur Mac,
+   `.AppImage` sur Linux).
+2. Double-cliquer dessus : ça installe le launcher (raccourci Bureau + menu
+   Démarrer créés automatiquement) et le lance.
 3. Au premier lancement : choisir "Compte Microsoft" (si le jeu a été acheté)
    ou entrer un pseudo (mode sans compte).
 4. Choisir un skin (optionnel, on peut importer une image ou récupérer le
@@ -102,15 +104,38 @@ automatiquement le skin choisi par chaque joueur dans le dossier que ce mod
 lit (`CustomSkinLoader/LocalSkin/<pseudo>.png`), configuré en source
 "Local Skin API".
 
+## Personnalisation (logo et fond d'écran)
+
+Deux images suffisent pour habiller le launcher, à ajouter dans le dépôt :
+
+- `src/renderer/assets/logo.png` : le logo (carré, idéalement 512×512 ou
+  plus), utilisé dans l'interface et comme icône de la fenêtre.
+- `src/renderer/assets/background.jpg` : l'image de fond affichée derrière
+  les écrans.
+- `build/icon.png` : la même image que le logo, mais en 1024×1024 si
+  possible. C'est à partir de ce fichier qu'electron-builder génère
+  automatiquement l'icône de l'installeur (`.ico` sur Windows, `.icns` sur
+  Mac). Sans ce fichier, l'icône par défaut d'Electron est utilisée.
+
+Une fois ces fichiers ajoutés, relance `npm run dist:win` pour régénérer
+l'installeur avec les nouveaux visuels.
+
 ## Développement
 
 ```bash
 npm install
 npm start          # lance le launcher en mode développement
-npm run dist:win    # build l'installeur Windows
+npm run dist:win    # build l'installeur Windows (Setup.exe)
 npm run dist:mac    # build l'installeur Mac
 npm run dist:linux  # build l'installeur Linux
 ```
+
+⚠️ Construire l'installeur Windows (`dist:win`) depuis Linux/Mac nécessite
+[Wine](https://www.winehq.org/) installé sur la machine qui build (pas besoin
+sur les machines des joueurs, uniquement pour toi si tu ne builds pas depuis
+un vrai Windows). Sur Debian/Ubuntu : `apt install wine wine32`. Depuis un
+Windows normal, `npm run dist:win` fonctionne directement sans rien
+installer de plus.
 
 ## Comment ça marche techniquement
 
