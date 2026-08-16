@@ -35,6 +35,25 @@ body {
   flex-direction: column;
 }
 
+.update-banner {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px;
+  background: linear-gradient(90deg, #2c3a6b, #3a4f9e);
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.update-banner span {
+  flex: 1;
+}
+
+.btn-small {
+  padding: 6px 12px;
+  font-size: 13px;
+}
+
 .screen {
   display: none;
   flex: 1;

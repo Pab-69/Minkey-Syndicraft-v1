@@ -9,6 +9,9 @@ on:
       - "**.md"
   workflow_dispatch: {}
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: windows-latest
@@ -21,7 +24,20 @@ jobs:
 
       - run: npm ci
 
-      - run: npm run dist:win
+      # Sur `main`, publie automatiquement une Release GitHub (lien stable
+      # .../releases/latest) avec le GITHUB_TOKEN fourni par Actions, pour
+      # que le launcher puisse detecter les mises a jour de lui-meme.
+      # Sur les autres branches, on build seulement (pas de publication).
+      - name: Build (et publie sur main)
+        shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ "${{ github.ref }}" = "refs/heads/main" ]; then
+            npm run dist:win -- --publish always
+          else
+            npm run dist:win -- --publish never
+          fi
 
       - uses: actions/upload-artifact@v4
         with:

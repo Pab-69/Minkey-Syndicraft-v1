@@ -6,8 +6,10 @@ const microsoftAuth = require('./auth/microsoft');
 const { syncMods } = require('./mods/sync');
 const { launchGame } = require('./game/launch');
 const skinManager = require('./skins/skinManager');
+const { checkForLauncherUpdate } = require('./updateCheck');
 
 let isPlaying = false;
+let lastKnownUpdate = null;
 
 function registerIpcHandlers(mainWindow) {
   const send = (channel, payload) => {
@@ -18,6 +20,16 @@ function registerIpcHandlers(mainWindow) {
   const sendState = (state, extra = {}) => send('game:state', { state, ...extra });
   const sendProgress = (payload) => send('game:progress', payload);
   const sendLog = (line) => send('game:log', line);
+
+  ipcMain.handle('app:check-update', async () => {
+    lastKnownUpdate = await checkForLauncherUpdate();
+    return lastKnownUpdate;
+  });
+
+  ipcMain.handle('app:open-update-link', async () => {
+    if (lastKnownUpdate) await shell.openExternal(lastKnownUpdate.url);
+    return { ok: true };
+  });
 
   ipcMain.handle('settings:get', () => {
     const settings = store.getAll();

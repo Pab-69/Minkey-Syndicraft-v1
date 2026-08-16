@@ -26,7 +26,11 @@
   "build": {
     "appId": "fr.pab69.minkeysyndicraft",
     "productName": "Minkey Syndicraft Launcher",
-    "publish": null,
+    "publish": {
+      "provider": "github",
+      "owner": "Pab-69",
+      "repo": "Minkey-Syndicraft-v1"
+    },
     "directories": {
       "output": "release"
     },

@@ -260,6 +260,23 @@ window.launcher.onLog((line) => {
   logContent.scrollTop = logContent.scrollHeight;
 });
 
+// --- Mise a jour du launcher ---
+
+el('btn-update-download').addEventListener('click', () => {
+  window.launcher.openUpdateLink();
+});
+
+el('btn-update-dismiss').addEventListener('click', () => {
+  el('update-banner').classList.add('hidden');
+});
+
+async function checkForUpdate() {
+  const update = await window.launcher.checkUpdate();
+  if (!update) return;
+  el('update-banner-text').textContent = `Nouvelle version du launcher disponible : ${update.version}`;
+  el('update-banner').classList.remove('hidden');
+}
+
 // --- Initialisation ---
 
 async function init() {
@@ -275,6 +292,8 @@ async function init() {
   } else {
     showScreen('login');
   }
+
+  checkForUpdate();
 }
 
 init();

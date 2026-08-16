@@ -7,6 +7,10 @@ function subscribe(channel, callback) {
 }
 
 contextBridge.exposeInMainWorld('launcher', {
+  // Mise a jour du launcher
+  checkUpdate: () => ipcRenderer.invoke('app:check-update'),
+  openUpdateLink: () => ipcRenderer.invoke('app:open-update-link'),
+
   // Reglages
   getSettings: () => ipcRenderer.invoke('settings:get'),
   setMemory: (minGb, maxGb) => ipcRenderer.invoke('settings:set-memory', { minGb, maxGb }),

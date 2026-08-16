@@ -64,6 +64,28 @@ serveur" et se mettre à jour tout seul.
 - Retirer une entrée du manifest supprime automatiquement le fichier chez
   tout le monde au prochain lancement.
 
+### Partager un resource pack / texture pack avec tout le monde
+
+Tu peux changer le resource pack en pleine aventure, oui. Deux étapes,
+complémentaires :
+
+1. **Distribuer le fichier automatiquement** : ajoute-le au manifest comme
+   n'importe quel autre fichier, avec `"path": "resourcepacks/mon-pack.zip"`.
+   Il sera téléchargé chez tout le monde au prochain lancement, sans que
+   personne ait à aller le chercher sur un site.
+2. **Le faire s'appliquer automatiquement chez tout le monde** (sinon chaque
+   joueur doit encore l'activer lui-même dans les options Minecraft) : configure
+   ton serveur pour qu'il l'impose à la connexion, dans `server.properties` :
+   ```
+   resource-pack=https://.../mon-pack.zip
+   resource-pack-sha1=l-empreinte-sha1-du-zip
+   require-resource-pack=true
+   ```
+   À la connexion, Minecraft propose (ou impose si `require-resource-pack=true`)
+   le téléchargement du pack à chaque joueur automatiquement — c'est ça qui
+   garantit que tout le monde voit vraiment la même chose, indépendamment de
+   ce que chacun a coché dans ses options.
+
 ### Changer la version de Minecraft / le mod loader
 
 Le bloc `minecraft` du manifest :
@@ -107,6 +129,24 @@ la whitelist :
    `/whitelist add <pseudo>`.
 3. Sans être whitelisté, personne ne peut rejoindre — même en connaissant
    l'IP trouvée dans le repo.
+
+## Mettre à jour le launcher lui-même
+
+Ça, c'est différent des mods : c'est pour quand tu changes le *launcher*
+(nouvel écran, correctif, etc.), pas juste la liste de mods. Le launcher
+vérifie tout seul, à chaque démarrage, s'il existe une version plus récente
+sur GitHub, et affiche un bandeau "Nouvelle version disponible" avec un
+bouton pour la télécharger — sans jamais bloquer ni forcer quoi que ce soit.
+
+Pour publier une nouvelle version :
+
+1. Augmente le champ `"version"` dans `package.json` (ex: `1.0.0` → `1.0.1`).
+2. Pousse sur la branche `main`.
+3. La CI build automatiquement l'installeur et le publie comme
+   [Release GitHub](https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/latest)
+   (lien stable, toujours la dernière version).
+4. Au prochain démarrage de leur launcher, tes potes voient le bandeau de
+   mise à jour et peuvent télécharger la nouvelle version depuis ce lien.
 
 ## Skins pour les comptes sans compte Microsoft
 
