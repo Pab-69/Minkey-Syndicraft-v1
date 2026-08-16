@@ -20,7 +20,18 @@ function resolveQuickPlay(server, mcVersion) {
 // directement sur le serveur defini dans le manifest ; en mode solo, ignore
 // le serveur pour permettre de tester le modpack en jeu solo. Retourne le
 // processus enfant.
-async function launchGame({ manifest, authorization, memoryMinGb, memoryMaxGb, onProgress, onLog, solo }) {
+async function launchGame({
+  manifest,
+  authorization,
+  memoryMinGb,
+  memoryMaxGb,
+  gameWindowWidth,
+  gameWindowHeight,
+  gameWindowFullscreen,
+  onProgress,
+  onLog,
+  solo
+}) {
   const report = (payload) => {
     if (onProgress) onProgress(payload);
   };
@@ -78,6 +89,9 @@ async function launchGame({ manifest, authorization, memoryMinGb, memoryMaxGb, o
     },
     forge: forgeInstallerPath,
     quickPlay: solo ? undefined : resolveQuickPlay(manifest.server, mcVersion),
+    window: gameWindowFullscreen
+      ? { fullscreen: true }
+      : { width: gameWindowWidth || 1280, height: gameWindowHeight || 720 },
     overrides: {
       detached: true
     }

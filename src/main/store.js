@@ -19,8 +19,11 @@ function baseDefaults() {
     msmcToken: null, // token de rafraichissement msmc (compte Microsoft), string
     skin: null, // { source: 'upload' | 'username', localPath, sourceUsername }
     manifestUrl: null, // si null, on utilise DEFAULT_MANIFEST_URL
-    windowBounds: null, // { width, height, x, y } - derniere taille/position de fenetre
+    windowBounds: null, // { width, height, x, y } - derniere taille/position de fenetre du launcher
     windowMaximized: false,
+    gameWindowWidth: 1280, // resolution de la fenetre Minecraft (pas celle du launcher)
+    gameWindowHeight: 720,
+    gameWindowFullscreen: false,
     ...defaultMemoryGb()
   };
 }

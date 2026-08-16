@@ -17,6 +17,8 @@ contextBridge.exposeInMainWorld('launcher', {
   // Reglages
   getSettings: () => ipcRenderer.invoke('settings:get'),
   setMemory: (minGb, maxGb) => ipcRenderer.invoke('settings:set-memory', { minGb, maxGb }),
+  setResolution: (width, height, fullscreen) =>
+    ipcRenderer.invoke('settings:set-resolution', { width, height, fullscreen }),
 
   // Authentification
   loginMicrosoft: () => ipcRenderer.invoke('auth:login-microsoft'),

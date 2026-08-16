@@ -58,7 +58,10 @@ function registerIpcHandlers(mainWindow) {
       memoryMaxGb,
       systemMemoryGb,
       maxAllowedGb,
-      manifestUrl: settings.manifestUrl || config.DEFAULT_MANIFEST_URL
+      manifestUrl: settings.manifestUrl || config.DEFAULT_MANIFEST_URL,
+      gameWindowWidth: settings.gameWindowWidth,
+      gameWindowHeight: settings.gameWindowHeight,
+      gameWindowFullscreen: settings.gameWindowFullscreen
     };
   });
 
@@ -69,6 +72,17 @@ function registerIpcHandlers(mainWindow) {
     const max = Math.max(min, Math.min(maxAllowedGb, Math.round(maxGb)));
     store.setMany({ memoryMinGb: min, memoryMaxGb: max });
     return { minGb: min, maxGb: max };
+  });
+
+  ipcMain.handle('settings:set-resolution', (_event, { width, height, fullscreen }) => {
+    const safeWidth = Math.max(640, Math.round(width) || 1280);
+    const safeHeight = Math.max(480, Math.round(height) || 720);
+    store.setMany({
+      gameWindowWidth: safeWidth,
+      gameWindowHeight: safeHeight,
+      gameWindowFullscreen: !!fullscreen
+    });
+    return { width: safeWidth, height: safeHeight, fullscreen: !!fullscreen };
   });
 
   ipcMain.handle('auth:login-microsoft', async () => {
@@ -172,6 +186,9 @@ function registerIpcHandlers(mainWindow) {
         authorization,
         memoryMinGb: minGb,
         memoryMaxGb: maxGb,
+        gameWindowWidth: store.get('gameWindowWidth'),
+        gameWindowHeight: store.get('gameWindowHeight'),
+        gameWindowFullscreen: store.get('gameWindowFullscreen'),
         onProgress: sendProgress,
         onLog: sendLog,
         solo

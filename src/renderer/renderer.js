@@ -171,6 +171,30 @@ memorySlider.addEventListener('input', () => {
   el('memory-value').textContent = memorySlider.value;
 });
 
+// --- Resolution de la fenetre Minecraft ---
+
+const resolutionSelect = el('resolution-select');
+const fullscreenCheckbox = el('fullscreen-checkbox');
+
+function closestResolutionOption(width, height) {
+  const target = `${width}x${height}`;
+  const hasExact = Array.from(resolutionSelect.options).some((opt) => opt.value === target);
+  return hasExact ? target : '1280x720';
+}
+
+async function saveResolution() {
+  const fullscreen = fullscreenCheckbox.checked;
+  const [width, height] = resolutionSelect.value.split('x').map((n) => parseInt(n, 10));
+  await window.launcher.setResolution(width, height, fullscreen);
+}
+
+resolutionSelect.addEventListener('change', saveResolution);
+
+fullscreenCheckbox.addEventListener('change', () => {
+  resolutionSelect.disabled = fullscreenCheckbox.checked;
+  saveResolution();
+});
+
 // --- Lancement du jeu ---
 
 const STATE_LABELS = {
@@ -309,6 +333,10 @@ async function init() {
   memorySlider.value = settings.memoryMaxGb;
   el('memory-value').textContent = settings.memoryMaxGb;
   el('memory-hint').textContent = `RAM détectée sur cette machine : ${settings.systemMemoryGb} Go`;
+
+  resolutionSelect.value = closestResolutionOption(settings.gameWindowWidth, settings.gameWindowHeight);
+  fullscreenCheckbox.checked = !!settings.gameWindowFullscreen;
+  resolutionSelect.disabled = fullscreenCheckbox.checked;
 
   if (settings.account) {
     state.account = settings.account;
