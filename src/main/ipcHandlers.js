@@ -1,3 +1,4 @@
+const os = require('os');
 const { ipcMain, shell } = require('electron');
 const config = require('./config');
 const store = require('./store');
@@ -43,17 +44,29 @@ function registerIpcHandlers(mainWindow) {
 
   ipcMain.handle('settings:get', () => {
     const settings = store.getAll();
+    const systemMemoryGb = Math.max(2, Math.floor(os.totalmem() / 1024 ** 3));
+    // Garde au moins 1 Go pour l'OS, au cas ou le reglage stocke depasse
+    // ce qui est reellement disponible sur cette machine (ex: fichier de
+    // reglages copie depuis un PC plus puissant).
+    const maxAllowedGb = Math.max(2, systemMemoryGb - 1);
+    const memoryMaxGb = Math.min(settings.memoryMaxGb, maxAllowedGb);
+    const memoryMinGb = Math.min(settings.memoryMinGb, memoryMaxGb);
+
     return {
       account: settings.account,
-      memoryMinGb: settings.memoryMinGb,
-      memoryMaxGb: settings.memoryMaxGb,
+      memoryMinGb,
+      memoryMaxGb,
+      systemMemoryGb,
+      maxAllowedGb,
       manifestUrl: settings.manifestUrl || config.DEFAULT_MANIFEST_URL
     };
   });
 
   ipcMain.handle('settings:set-memory', (_event, { minGb, maxGb }) => {
-    const min = Math.max(1, Math.min(32, Math.round(minGb)));
-    const max = Math.max(min, Math.min(32, Math.round(maxGb)));
+    const systemMemoryGb = Math.max(2, Math.floor(os.totalmem() / 1024 ** 3));
+    const maxAllowedGb = Math.max(2, systemMemoryGb - 1);
+    const min = Math.max(1, Math.min(maxAllowedGb, Math.round(minGb)));
+    const max = Math.max(min, Math.min(maxAllowedGb, Math.round(maxGb)));
     store.setMany({ memoryMinGb: min, memoryMaxGb: max });
     return { minGb: min, maxGb: max };
   });

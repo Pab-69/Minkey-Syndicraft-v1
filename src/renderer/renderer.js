@@ -305,8 +305,10 @@ async function init() {
   const settings = await window.launcher.getSettings();
   state.memoryMinGb = settings.memoryMinGb;
   state.memoryMaxGb = settings.memoryMaxGb;
+  memorySlider.max = settings.maxAllowedGb;
   memorySlider.value = settings.memoryMaxGb;
   el('memory-value').textContent = settings.memoryMaxGb;
+  el('memory-hint').textContent = `RAM détectée sur cette machine : ${settings.systemMemoryGb} Go`;
 
   if (settings.account) {
     state.account = settings.account;

@@ -1,15 +1,29 @@
 const fs = require('fs');
+const os = require('os');
 const path = require('path');
 const { getSettingsPath } = require('./config');
 
-const DEFAULTS = {
-  account: null, // { type: 'microsoft' | 'offline', username, uuid, avatarDataUrl }
-  msmcToken: null, // token de rafraichissement msmc (compte Microsoft), string
-  skin: null, // { source: 'upload' | 'username', localPath, sourceUsername }
-  memoryMinGb: 2,
-  memoryMaxGb: 4,
-  manifestUrl: null // si null, on utilise DEFAULT_MANIFEST_URL
-};
+// Memoire par defaut basee sur la RAM reellement disponible sur la machine,
+// pour eviter qu'un reglage pense pour un PC puissant fasse planter Java
+// sur un PC plus modeste. Max = la moitie de la RAM (au moins 2 Go).
+function defaultMemoryGb() {
+  const totalGb = Math.floor(os.totalmem() / 1024 ** 3);
+  const max = Math.max(2, Math.min(8, Math.floor(totalGb / 2)));
+  const min = Math.min(2, max);
+  return { memoryMinGb: min, memoryMaxGb: max };
+}
+
+function baseDefaults() {
+  return {
+    account: null, // { type: 'microsoft' | 'offline', username, uuid, avatarDataUrl }
+    msmcToken: null, // token de rafraichissement msmc (compte Microsoft), string
+    skin: null, // { source: 'upload' | 'username', localPath, sourceUsername }
+    manifestUrl: null, // si null, on utilise DEFAULT_MANIFEST_URL
+    windowBounds: null, // { width, height, x, y } - derniere taille/position de fenetre
+    windowMaximized: false,
+    ...defaultMemoryGb()
+  };
+}
 
 let cache = null;
 
@@ -18,9 +32,9 @@ function load() {
   const file = getSettingsPath();
   try {
     const raw = fs.readFileSync(file, 'utf-8');
-    cache = { ...DEFAULTS, ...JSON.parse(raw) };
+    cache = { ...baseDefaults(), ...JSON.parse(raw) };
   } catch {
-    cache = { ...DEFAULTS };
+    cache = baseDefaults();
   }
   return cache;
 }
