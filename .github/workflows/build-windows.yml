@@ -26,15 +26,27 @@ jobs:
 
       # GitHub exige que le tag existe deja pour pouvoir publier une release
       # directement (pas en brouillon) : on le cree/pousse avant le build.
-      - name: Cree le tag de version (sur main)
+      # On cree aussi la Release GitHub elle-meme a l'avance : sinon
+      # electron-builder tente de la creer depuis deux uploads en parallele
+      # (le .exe et son .blockmap), ce qui provoque une race condition ou
+      # l'un des deux echoue avec "already_exists" et son fichier (parfois
+      # le .exe lui-meme) n'est jamais mis en ligne.
+      - name: Cree le tag et la Release GitHub (sur main)
         if: github.ref == 'refs/heads/main'
         shell: bash
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           VERSION=$(node -p "require('./package.json').version")
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git tag "v$VERSION" 2>/dev/null || echo "Tag v$VERSION deja existant"
           git push origin "v$VERSION" 2>/dev/null || echo "Tag v$VERSION deja pousse"
+          if gh release view "v$VERSION" >/dev/null 2>&1; then
+            echo "Release v$VERSION deja existante"
+          else
+            gh release create "v$VERSION" --title "$VERSION" --notes "v$VERSION" --target main
+          fi
 
       # Sur `main`, publie automatiquement une Release GitHub (lien stable
       # .../releases/latest) avec le GITHUB_TOKEN fourni par Actions, pour
