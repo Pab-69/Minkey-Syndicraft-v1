@@ -26,6 +26,7 @@
   "build": {
     "appId": "fr.pab69.minkeysyndicraft",
     "productName": "Minkey Syndicraft Launcher",
+    "publish": null,
     "directories": {
       "output": "release"
     },
