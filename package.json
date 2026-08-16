@@ -1,6 +1,6 @@
 {
   "name": "minkey-syndicraft-launcher",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Launcher Minecraft modde pour le groupe - synchronisation automatique des mods et connexion directe au serveur",
   "main": "src/main/main.js",
   "author": "Pab-69",
@@ -29,7 +29,8 @@
     "publish": {
       "provider": "github",
       "owner": "Pab-69",
-      "repo": "Minkey-Syndicraft-v1"
+      "repo": "Minkey-Syndicraft-v1",
+      "releaseType": "release"
     },
     "directories": {
       "output": "release"
