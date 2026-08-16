@@ -10,5 +10,12 @@
     "address": "play.minkey-syndicraft.example",
     "port": 25565
   },
-  "files": []
+  "files": [
+    {
+      "name": "Fond d'écran du menu principal (PackMenu)",
+      "path": "packmenu/resources/assets/packmenu/textures/gui/background.png",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/extras/packmenu/background.png",
+      "sha1": "18a1607617b67294c1c0f3a37f38f560a7ca2339"
+    }
+  ]
 }

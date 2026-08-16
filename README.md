@@ -86,6 +86,32 @@ complémentaires :
    garantit que tout le monde voit vraiment la même chose, indépendamment de
    ce que chacun a coché dans ses options.
 
+### Personnaliser le menu principal de Minecraft
+
+Pour remplacer l'écran titre de Minecraft (celui avec "Minecraft Java
+Edition") par votre propre déco, il faut le mod
+[PackMenu](https://www.curseforge.com/minecraft/mc-mods/packmenu)
+(successeur de Custom Main Menu, compatible Fabric).
+
+**Le fond d'écran est déjà prêt** : `extras/packmenu/background.png` dans ce
+dépôt (généré à partir de l'image de fond du launcher) est déjà référencé
+dans `manifest/manifest.json`, au bon endroit
+(`packmenu/resources/assets/packmenu/textures/gui/background.png`) et au bon
+format (1920×1080). Il ne s'affichera que quand le mod sera installé.
+
+Ce qu'il te reste à faire :
+
+1. Télécharge PackMenu (version Fabric, 1.20.1) sur
+   [CurseForge](https://www.curseforge.com/minecraft/mc-mods/packmenu).
+2. Ajoute-le au manifest comme n'importe quel mod (voir plus haut).
+3. Teste via **"Jouer en solo"** — le fond d'écran devrait déjà apparaître.
+4. Pour aussi remplacer le logo ou ajouter des boutons personnalisés, le mod
+   génère sa propre structure de dossiers au premier lancement
+   (`packmenu/resources/`) — le [wiki du mod](https://github.com/Shadows-of-Fire/PackMenu/wiki)
+   documente le format JSON des boutons si tu veux aller plus loin. Je n'ai
+   pas pu vérifier ce point précis (pas d'accès à un vrai Minecraft dans mon
+   environnement), donc à tester avant de distribuer à tout le monde.
+
 ### Changer la version de Minecraft / le mod loader
 
 Le bloc `minecraft` du manifest :
