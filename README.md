@@ -94,6 +94,20 @@ Le bloc `minecraft` du manifest :
 C'est cette adresse que le bouton "Rejoindre le serveur" utilise pour
 connecter directement le joueur, sans qu'il ait à la retaper.
 
+### Sécuriser le serveur (repo public)
+
+Ce dépôt est public, donc `manifest.json` (et l'adresse du serveur qu'il
+contient) est visible par n'importe qui. Ce n'est pas grave en soi, mais ça
+veut dire qu'il ne faut pas compter sur le fait que l'IP soit "secrète" pour
+protéger le serveur. La vraie protection se fait côté serveur Minecraft, avec
+la whitelist :
+
+1. Dans `server.properties` : `white-list=true` et `enforce-whitelist=true`.
+2. Ajoute chaque pote en console (ou en jeu si tu es op) :
+   `/whitelist add <pseudo>`.
+3. Sans être whitelisté, personne ne peut rejoindre — même en connaissant
+   l'IP trouvée dans le repo.
+
 ## Skins pour les comptes sans compte Microsoft
 
 Un compte "sans compte" (crack) n'a normalement pas de skin personnalisé côté
