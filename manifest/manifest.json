@@ -6,10 +6,6 @@
     "modLoader": "fabric",
     "loaderVersion": "latest"
   },
-  "server": {
-    "address": "play.minkey-syndicraft.example",
-    "port": 25565
-  },
   "info": "Bienvenue sur Minkey Syndicraft !\n\nAjoute ici les dernières infos pour la bande (règles, date de l'aventure, changements récents...). Ce texte est modifiable à tout moment dans manifest.json et se met à jour tout seul chez tout le monde.",
   "files": [
     {

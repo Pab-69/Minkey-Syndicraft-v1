@@ -8,7 +8,7 @@ que tout le monde ait exactement les mêmes mods avant l'aventure annuelle.
 - Compatible **compte Microsoft officiel** et **pseudo sans compte (crack)**.
 - Java est géré automatiquement (téléchargé si besoin, personne n'a rien à
   installer).
-- Un seul bouton : **Rejoindre le serveur**.
+- Un seul bouton : **Jouer**.
 
 ## Pour tes potes (les joueurs)
 
@@ -21,9 +21,11 @@ que tout le monde ait exactement les mêmes mods avant l'aventure annuelle.
    ou entrer un pseudo (mode sans compte).
 4. Choisir un skin (optionnel, on peut importer une image ou récupérer le
    skin d'un pseudo Minecraft existant).
-5. Cliquer sur **Rejoindre le serveur**. Le launcher télécharge les mods
-   manquants, installe Java/Fabric/Forge si besoin, puis lance le jeu
-   directement connecté au serveur.
+5. Cliquer sur **Jouer**. Le launcher télécharge les mods manquants, installe
+   Java/Fabric/Forge si besoin, puis lance le jeu.
+6. Une fois dans Minecraft, ajouter le serveur depuis le menu multijoueur
+   (une seule fois, comme d'habitude) : l'adresse reste ensuite enregistrée
+   dans la liste des serveurs.
 
 Ils n'ont rien d'autre à toucher : à chaque lancement suivant, le launcher
 vérifie tout seul s'il y a des mods à mettre à jour.
@@ -33,8 +35,8 @@ vérifie tout seul s'il y a des mods à mettre à jour.
 Tout se pilote depuis **un seul fichier** : [`manifest/manifest.json`](manifest/manifest.json).
 Dès que tu le modifies et que tu le pousses sur la branche `main` de ce dépôt,
 le launcher de tous tes potes va le voir et se mettre à jour tout seul (au
-prochain démarrage pour les infos, au prochain clic sur "Rejoindre le
-serveur" pour les mods).
+prochain démarrage pour les infos, au prochain clic sur "Jouer" pour les
+mods).
 
 ⚠️ GitHub garde parfois une version en cache jusqu'à ~5 minutes après un
 push (`raw.githubusercontent.com`) — si un changement n'apparaît pas tout de
@@ -115,9 +117,9 @@ au manifest de la même façon (upload sur le repo, chemin
 d'autres mods à venir) refusera de charger au démarrage.
 
 FancyMenu se configure directement en jeu via son éditeur visuel (pas besoin
-d'écrire de JSON à la main) : lance le launcher en **"Jouer en solo"**, une
-fois sur l'écran titre cherche le bouton/la touche pour activer le mode
-édition, et construis ton menu (fond, logo, boutons) en glisser-déposer. Le
+d'écrire de JSON à la main) : lance le jeu depuis le launcher, une fois sur
+l'écran titre cherche le bouton/la touche pour activer le mode édition, et
+construis ton menu (fond, logo, boutons) en glisser-déposer. Le
 mod sauvegarde ensuite un fichier de configuration dans
 `config/fancymenu/` — envoie-le-moi une fois fait et je l'ajoute au manifest
 pour que tout le monde ait le même résultat automatiquement.
@@ -142,23 +144,18 @@ Le bloc `minecraft` du manifest :
 
 ### Adresse du serveur
 
-```json
-"server": {
-  "address": "play.minkey-syndicraft.example",
-  "port": 25565
-}
-```
-
-C'est cette adresse que le bouton "Rejoindre le serveur" utilise pour
-connecter directement le joueur, sans qu'il ait à la retaper.
+Le launcher ne se connecte plus automatiquement à un serveur : chacun
+l'ajoute une seule fois depuis le menu multijoueur de Minecraft (ou via un
+raccourci configuré dans FancyMenu, voir plus haut). Le manifest ne contient
+donc plus d'adresse de serveur.
 
 ### Sécuriser le serveur (repo public)
 
-Ce dépôt est public, donc `manifest.json` (et l'adresse du serveur qu'il
-contient) est visible par n'importe qui. Ce n'est pas grave en soi, mais ça
-veut dire qu'il ne faut pas compter sur le fait que l'IP soit "secrète" pour
-protéger le serveur. La vraie protection se fait côté serveur Minecraft, avec
-la whitelist :
+Ce dépôt est public, donc si tu partages l'adresse du serveur avec la bande
+(en jeu, par message...), ce n'est pas grave en soi, mais ça veut dire qu'il
+ne faut pas compter sur le fait que l'IP soit "secrète" pour protéger le
+serveur. La vraie protection se fait côté serveur Minecraft, avec la
+whitelist :
 
 1. Dans `server.properties` : `white-list=true` et `enforce-whitelist=true`.
 2. Ajoute chaque pote en console (ou en jeu si tu es op) :

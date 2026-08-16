@@ -33,7 +33,7 @@ contextBridge.exposeInMainWorld('launcher', {
   clearSkin: () => ipcRenderer.invoke('skin:clear'),
 
   // Jeu
-  play: (mode) => ipcRenderer.invoke('game:play', mode),
+  play: () => ipcRenderer.invoke('game:play'),
   openInstanceFolder: () => ipcRenderer.invoke('game:open-instance-folder'),
 
   // Evenements (main -> renderer)

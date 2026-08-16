@@ -149,9 +149,8 @@ function registerIpcHandlers(mainWindow) {
     return { ok: true };
   });
 
-  ipcMain.handle('game:play', async (_event, mode) => {
+  ipcMain.handle('game:play', async () => {
     if (isPlaying) return { ok: false, error: 'Le jeu est deja en cours de lancement.' };
-    const solo = mode === 'solo';
 
     const account = store.get('account');
     if (!account) {
@@ -190,8 +189,7 @@ function registerIpcHandlers(mainWindow) {
         gameWindowHeight: store.get('gameWindowHeight'),
         gameWindowFullscreen: store.get('gameWindowFullscreen'),
         onProgress: sendProgress,
-        onLog: sendLog,
-        solo
+        onLog: sendLog
       });
 
       sendState('playing');

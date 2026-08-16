@@ -4,22 +4,9 @@ const { ensureJava } = require('./java');
 const { ensureFabric } = require('./fabricInstaller');
 const { ensureForgeInstaller } = require('./forgeInstaller');
 
-function resolveQuickPlay(server, mcVersion) {
-  if (!server || !server.address) return undefined;
-
-  const [major, minor] = mcVersion.split('.').map((n) => parseInt(n, 10));
-  const supportsModernQuickPlay = major > 1 || (major === 1 && minor >= 20);
-
-  return {
-    type: supportsModernQuickPlay ? 'multiplayer' : 'legacy',
-    identifier: `${server.address}:${server.port || 25565}`
-  };
-}
-
-// Prepare (Java, Fabric/Forge) puis lance Minecraft. Par defaut connecte
-// directement sur le serveur defini dans le manifest ; en mode solo, ignore
-// le serveur pour permettre de tester le modpack en jeu solo. Retourne le
-// processus enfant.
+// Prepare (Java, Fabric/Forge) puis lance Minecraft. Ne connecte pas
+// automatiquement a un serveur : chacun ajoute le serveur lui-meme depuis
+// le menu multijoueur de Minecraft. Retourne le processus enfant.
 async function launchGame({
   manifest,
   authorization,
@@ -29,8 +16,7 @@ async function launchGame({
   gameWindowHeight,
   gameWindowFullscreen,
   onProgress,
-  onLog,
-  solo
+  onLog
 }) {
   const report = (payload) => {
     if (onProgress) onProgress(payload);
@@ -88,7 +74,6 @@ async function launchGame({
       max: `${memoryMaxGb}G`
     },
     forge: forgeInstallerPath,
-    quickPlay: solo ? undefined : resolveQuickPlay(manifest.server, mcVersion),
     window: gameWindowFullscreen
       ? { fullscreen: true }
       : { width: gameWindowWidth || 1280, height: gameWindowHeight || 720 },
