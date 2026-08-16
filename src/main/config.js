@@ -5,11 +5,8 @@ const { app } = require('electron');
 // et l'adresse du serveur. C'est le SEUL fichier que l'hote du serveur a besoin
 // de modifier + pousser sur GitHub pour que tous les launchers des copains
 // se mettent a jour automatiquement au prochain lancement.
-// NOTE: pointe temporairement sur la branche de dev tant que ce projet n'est
-// pas encore fusionne sur `main` (qui ne contient encore que le README).
-// A remettre sur `main` des que la branche y est fusionnee.
 const DEFAULT_MANIFEST_URL =
-  'https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/claude/minecraft-mod-launcher-58b9if/manifest/manifest.json';
+  'https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/manifest/manifest.json';
 
 // Dossier racine ou tout est installe (Minecraft, mods, java portable, comptes...)
 function getInstanceDir() {
