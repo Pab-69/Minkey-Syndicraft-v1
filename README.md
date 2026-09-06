@@ -105,16 +105,11 @@ complémentaires :
 
 Pour remplacer l'écran titre de Minecraft (celui avec "Minecraft Java
 Edition") par votre propre déco, on utilise le mod
-[FancyMenu](https://modrinth.com/mod/fancymenu) (version Fabric), déjà
-ajouté au manifest avec ses deux dépendances **Konkrete** et **Melody**
-(elles aussi obligatoires, sans quoi FancyMenu ne se charge pas).
-
-⚠️ **Il manque encore la Fabric API** : FancyMenu en a besoin pour
-fonctionner (`"fabric": ">=0.88.1"` dans ses dépendances). Télécharge-la sur
-[Modrinth](https://modrinth.com/mod/fabric-api) (Fabric, 1.20.1) et ajoute-la
-au manifest de la même façon (upload sur le repo, chemin
-`mods/fabric-api-x.x.x.jar`) — sans elle, FancyMenu (et probablement
-d'autres mods à venir) refusera de charger au démarrage.
+[FancyMenu](https://modrinth.com/mod/fancymenu) (version Fabric). Il faut
+l'ajouter au manifest avec ses deux dépendances obligatoires **Konkrete** et
+**Melody** (sans quoi FancyMenu ne se charge pas), plus la **Fabric API**
+qu'il lui faut aussi pour fonctionner — toutes dans la version compatible
+avec la version de Minecraft du manifest (voir plus bas).
 
 FancyMenu se configure directement en jeu via son éditeur visuel (pas besoin
 d'écrire de JSON à la main) : lance le jeu depuis le launcher, une fois sur
@@ -130,7 +125,7 @@ Le bloc `minecraft` du manifest :
 
 ```json
 "minecraft": {
-  "version": "1.20.1",
+  "version": "1.21.11",
   "type": "release",
   "modLoader": "fabric",
   "loaderVersion": "latest"
