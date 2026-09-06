@@ -1,5 +1,5 @@
 {
-  "modpackVersion": "1.1.0",
+  "modpackVersion": "1.2.0",
   "minecraft": {
     "version": "1.21.11",
     "type": "release",
@@ -7,5 +7,540 @@
     "loaderVersion": "latest"
   },
   "info": "Bienvenue sur Minkey Syndicraft !\n\nAjoute ici les dernières infos pour la bande (règles, date de l'aventure, changements récents...). Ce texte est modifiable à tout moment dans manifest.json et se met à jour tout seul chez tout le monde.",
-  "files": []
+  "files": [
+    {
+      "name": "Abridged",
+      "path": "mods/abridged-2.0.1-fabric-1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/abridged-2.0.1-fabric-1.21.11.jar",
+      "sha1": "5483026a0d825b91d24d20c209a7aa03e5b3d17a"
+    },
+    {
+      "name": "Advancement Plaques",
+      "path": "mods/AdvancementPlaques-1.21.11-fabric-1.7.0.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/AdvancementPlaques-1.21.11-fabric-1.7.0.jar",
+      "sha1": "cca5d8ff3dabc3677f97a4fa426f2336d78e1d18"
+    },
+    {
+      "name": "Alex's Mobs Continued",
+      "path": "mods/alexsmobs-2.1.9-fabric+1.21.11.1.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/alexsmobs-2.1.9-fabric%2B1.21.11.1.jar",
+      "sha1": "414636479c3a462a520ffbbfbef1a79b5423f77b"
+    },
+    {
+      "name": "Almanac",
+      "path": "mods/Almanac-1.21.11-x-fabric-1.6.2.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/Almanac-1.21.11-x-fabric-1.6.2.jar",
+      "sha1": "a502baf3cf4ecf8312e7986a88dce69836df729a"
+    },
+    {
+      "name": "Atmosfera",
+      "path": "mods/atmosfera-2.7.2+mc1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/atmosfera-2.7.2%2Bmc1.21.11.jar",
+      "sha1": "e7ce22ec444daf1865183edc08277a8fbd26d8da"
+    },
+    {
+      "name": "Auto HUD",
+      "path": "mods/autohud-8.11+1.21.11-fabric.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/autohud-8.11%2B1.21.11-fabric.jar",
+      "sha1": "2c7e7e2ff392c373d034ee4f4160d15119b56319"
+    },
+    {
+      "name": "BadOptimizations",
+      "path": "mods/BadOptimizations-2.4.1-1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/BadOptimizations-2.4.1-1.21.11.jar",
+      "sha1": "70fa28d5a7a1fdd61dd804ca6ac411750da1473f"
+    },
+    {
+      "name": "Basic Weapons",
+      "path": "mods/basicweapons-fabric-2.3.7+1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/basicweapons-fabric-2.3.7%2B1.21.11.jar",
+      "sha1": "f4f9079964262a7edf721f7797f8c71ff2ca66c5"
+    },
+    {
+      "name": "BBE",
+      "path": "mods/bbe-fabric-1.3.4+mc1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/bbe-fabric-1.3.4%2Bmc1.21.11.jar",
+      "sha1": "e9f247278ef17128fbfcd2b0e248ac02a3de279b"
+    },
+    {
+      "name": "Beautify",
+      "path": "mods/beautify-1.8.0+1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/beautify-1.8.0%2B1.21.11.jar",
+      "sha1": "ec15d26e5b5d9f9cd2a73ad9f13624506400b137"
+    },
+    {
+      "name": "Better Combat",
+      "path": "mods/bettercombat-fabric-3.1.0+1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/bettercombat-fabric-3.1.0%2B1.21.11.jar",
+      "sha1": "ffbeb7430bf44edfd1f8075efc1499c28a22454c"
+    },
+    {
+      "name": "Better Trees",
+      "path": "mods/better-trees-1.9.3.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/better-trees-1.9.3.jar",
+      "sha1": "06275db9fe2c9a29a222473ad3079ba2b92a2f6f"
+    },
+    {
+      "name": "Boids",
+      "path": "mods/boids-2.0.1+1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/boids-2.0.1%2B1.21.11.jar",
+      "sha1": "9e558c13354ebd48a04c2f8ef356ed0cc4bbfe25"
+    },
+    {
+      "name": "Chat Heads",
+      "path": "mods/chat_heads-1.2.8-fabric-1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/chat_heads-1.2.8-fabric-1.21.11.jar",
+      "sha1": "696e479bdd86587da34243b692ad88225906929a"
+    },
+    {
+      "name": "ChatAnimation",
+      "path": "mods/chatanimation-fabric-1.3.0+mc1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/chatanimation-fabric-1.3.0%2Bmc1.21.11.jar",
+      "sha1": "67a96d19e64a73728e2da8a7a314dff3b134f9eb"
+    },
+    {
+      "name": "Chunky",
+      "path": "mods/Chunky-Fabric-1.4.55.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/Chunky-Fabric-1.4.55.jar",
+      "sha1": "19c34a23a5c1b2f6c73117b8eb4524b521e1926b"
+    },
+    {
+      "name": "Cloth Config v20",
+      "path": "mods/cloth-config-21.11.153-fabric.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/cloth-config-21.11.153-fabric.jar",
+      "sha1": "4c224606a963bce223db5b27edb4959ecf40d4ee"
+    },
+    {
+      "name": "Clumps",
+      "path": "mods/Clumps-fabric-1.21.11-29.0.0.1.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/Clumps-fabric-1.21.11-29.0.0.1.jar",
+      "sha1": "626fde9e970030cfc8cb64cd0a1abfc03d37ecc2"
+    },
+    {
+      "name": "CodxLib",
+      "path": "mods/codxlib-1.5.1-fabric+1.21.11.1.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/codxlib-1.5.1-fabric%2B1.21.11.1.jar",
+      "sha1": "b9c70204049074aeee56023b0bdc32b451827bcf"
+    },
+    {
+      "name": "Concurrent Chunk Management Engine",
+      "path": "mods/c2me-fabric-mc1.21.11-0.3.6.0.0.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/c2me-fabric-mc1.21.11-0.3.6.0.0.jar",
+      "sha1": "587f9a3d9e4591e8e1a1c3eda61ed2f7bfa5dc46"
+    },
+    {
+      "name": "Connectible Chains",
+      "path": "mods/connectiblechains-2.5.7+1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/connectiblechains-2.5.7%2B1.21.11.jar",
+      "sha1": "96060ba4ae38dbe44f2e2671634dbc612569c271"
+    },
+    {
+      "name": "Crawl",
+      "path": "mods/crawl-mc1.21.11-fabric-0.15.0.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/crawl-mc1.21.11-fabric-0.15.0.jar",
+      "sha1": "188e87b446fdad33748a71d72b6b6f1d9a4f8afd"
+    },
+    {
+      "name": "Debugify",
+      "path": "mods/debugify-1.21.11+1.1.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/debugify-1.21.11%2B1.1.jar",
+      "sha1": "a8852a320c6d1a448cfc0f7cb0369e0a3c858146"
+    },
+    {
+      "name": "Dungeons and Taverns Ancient City Overhaul",
+      "path": "mods/dungeons-and-taverns-ancient-city-overhaul-3.2.3.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/dungeons-and-taverns-ancient-city-overhaul-3.2.3.jar",
+      "sha1": "604fda55db9bed077d145a9f399d96742e7e30e8"
+    },
+    {
+      "name": "Dungeons and Taverns Jungle Temple Overhaul",
+      "path": "mods/dungeons-and-taverns-jungle-temple-overhaul-v2.1.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/dungeons-and-taverns-jungle-temple-overhaul-v2.1.jar",
+      "sha1": "fe0fbefce4fbbe01327e33c930bf6c8be6ad444e"
+    },
+    {
+      "name": "Dungeons and Taverns Nether Fortress Overhaul",
+      "path": "mods/dungeons-and-taverns-nether-fortress-overhaul-v3.1.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/dungeons-and-taverns-nether-fortress-overhaul-v3.1.jar",
+      "sha1": "9b6bb22714dc19665ed4a85360a06b346e02fa00"
+    },
+    {
+      "name": "Dungeons and Taverns Ocean Monument Overhaul",
+      "path": "mods/dungeons-and-taverns-ocean-monument-overhaul-v2.2.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/dungeons-and-taverns-ocean-monument-overhaul-v2.2.jar",
+      "sha1": "76815853566f83b82282e47d50c5e6dac4290266"
+    },
+    {
+      "name": "Dungeons and Taverns Pillager Outpost Overhaul",
+      "path": "mods/dungeons-and-taverns-pillager-outpost-overhaul-v3.3.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/dungeons-and-taverns-pillager-outpost-overhaul-v3.3.jar",
+      "sha1": "6c42574c289aa443493e3b7da77c33b5cc495071"
+    },
+    {
+      "name": "Dungeons and Taverns Stronghold Overhaul",
+      "path": "mods/dungeons-and-taverns-stronghold-overhaul-v2.4.0.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/dungeons-and-taverns-stronghold-overhaul-v2.4.0.jar",
+      "sha1": "13e7d264bdf0e05133a5208b5547ac4fc1ce0657"
+    },
+    {
+      "name": "Dungeons and Taverns Swamp Hut Overhaul",
+      "path": "mods/dungeons-and-taverns-swamp-hut-overhaul-v2.3.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/dungeons-and-taverns-swamp-hut-overhaul-v2.3.jar",
+      "sha1": "ab0456a73cc3ddfdeeab1d4eb27b45c9ef5cafad"
+    },
+    {
+      "name": "Dungeons and Taverns Woodland Mansion Overhaul",
+      "path": "mods/dungeons-and-taverns-woodland-mansion-overhaul-2.1.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/dungeons-and-taverns-woodland-mansion-overhaul-2.1.jar",
+      "sha1": "9c7c4f706c1c7d9cdf288918c0d51dfbfeba4988"
+    },
+    {
+      "name": "Dungeons Dimensions: Nether",
+      "path": "mods/mcd_d_nether-fabric-1.21.11-1.3.3.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/mcd_d_nether-fabric-1.21.11-1.3.3.jar",
+      "sha1": "d63fa464f9c4271e394366a667d215a4874282cf"
+    },
+    {
+      "name": "Dynamic FPS",
+      "path": "mods/dynamic-fps-3.11.6+minecraft-1.21.11-fabric.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/dynamic-fps-3.11.6%2Bminecraft-1.21.11-fabric.jar",
+      "sha1": "2e5ab45e69b43812491cfa34f8f7a4ce7623c233"
+    },
+    {
+      "name": "Emotecraft",
+      "path": "mods/emotecraft-fabric-for-MC1.21.11-3.2.0-b.build.163.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/emotecraft-fabric-for-MC1.21.11-3.2.0-b.build.163.jar",
+      "sha1": "9ea952181c93a9c5ee083759c1a15a1a135c032f"
+    },
+    {
+      "name": "Entity Model Features",
+      "path": "mods/entity_model_features-3.2.4-1.21.11-fabric.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/entity_model_features-3.2.4-1.21.11-fabric.jar",
+      "sha1": "fb87711a8252c4b54908c589e3c13b00a767808e"
+    },
+    {
+      "name": "Entity Texture Features",
+      "path": "mods/entity_texture_features_1.21.11-fabric-7.1.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/entity_texture_features_1.21.11-fabric-7.1.jar",
+      "sha1": "1d26dbb21dd4f17adbdb54f077334634f708a3d4"
+    },
+    {
+      "name": "EntityCulling",
+      "path": "mods/entityculling-fabric-1.10.5-mc1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/entityculling-fabric-1.10.5-mc1.21.11.jar",
+      "sha1": "270493a6d3a3214495abed9e74f2181817043963"
+    },
+    {
+      "name": "Epic Structures: Dungeons",
+      "path": "mods/epic-structures-dungeons-1.2.4.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/epic-structures-dungeons-1.2.4.jar",
+      "sha1": "926c5032f8e93355d2ae0e5ee3cf89999c0f0b39"
+    },
+    {
+      "name": "Epic Structures: Villages",
+      "path": "mods/Epic.Villages.1.3.3.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/Epic.Villages.1.3.3.jar",
+      "sha1": "47d33c83c0aae927e4e649b2fb197609b7678f41"
+    },
+    {
+      "name": "Essential",
+      "path": "mods/Essential_1-4-1-1_fabric_1-21-11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/Essential_1-4-1-1_fabric_1-21-11.jar",
+      "sha1": "01c762046501cc12b181d227b2c9b31e3bca6956"
+    },
+    {
+      "name": "Explosive Enhancement",
+      "path": "mods/explosive-enhancement-1.4.1-1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/explosive-enhancement-1.4.1-1.21.11.jar",
+      "sha1": "b66aa126881b90e03553714cdddbf13b02a0851d"
+    },
+    {
+      "name": "Fabric API",
+      "path": "mods/fabric-api-0.141.6+1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/fabric-api-0.141.6%2B1.21.11.jar",
+      "sha1": "c98467cbbaf4d197377266795ae015f4130d65b6"
+    },
+    {
+      "name": "Farmer's Delight",
+      "path": "mods/FarmersDelight-1.21.11-3.6.16+refabricated.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/FarmersDelight-1.21.11-3.6.16%2Brefabricated.jar",
+      "sha1": "44cb71429f0db84bc09b48a658340d7fb3184fff"
+    },
+    {
+      "name": "Fast Noise",
+      "path": "mods/zfastnoise-1.0.40+1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/zfastnoise-1.0.40%2B1.21.11.jar",
+      "sha1": "e8a53bd9a037bc917c50179f8e5011be3bdb82e1"
+    },
+    {
+      "name": "FastQuit",
+      "path": "mods/fastquit-3.1.3+mc1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/fastquit-3.1.3%2Bmc1.21.11.jar",
+      "sha1": "9ba127357e1fc9ff800496250fb510f70f394714"
+    },
+    {
+      "name": "FerriteCore",
+      "path": "mods/ferritecore-8.2.0-fabric.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/ferritecore-8.2.0-fabric.jar",
+      "sha1": "c2e2f5e008f5bc9f401dfad8ca94909917006b65"
+    },
+    {
+      "name": "Forge Config API Port",
+      "path": "mods/ForgeConfigAPIPort-v21.11.1-mc1.21.11-Fabric.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/ForgeConfigAPIPort-v21.11.1-mc1.21.11-Fabric.jar",
+      "sha1": "61aa1b5fafd75afc44552d0213cac39bc938bc2d"
+    },
+    {
+      "name": "Geophilic",
+      "path": "mods/Geophilic.v3.6.mod.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/Geophilic.v3.6.mod.jar",
+      "sha1": "1eb1700a02ebeab1bf1f3004abd4a02263495d25"
+    },
+    {
+      "name": "GPUBooster",
+      "path": "mods/GPUBooster-1.3.0h-1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/GPUBooster-1.3.0h-1.21.11.jar",
+      "sha1": "af37e323a8386fee3bcf00f04a3743e53f327647"
+    },
+    {
+      "name": "Gravestones",
+      "path": "mods/gravestones-1.4.2+1.21.11+A.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/gravestones-1.4.2%2B1.21.11%2BA.jar",
+      "sha1": "9093d8c81c2a0a42f98eb5a1ef185ed96da7da85"
+    },
+    {
+      "name": "Grim kingdoms: Vanilla Edition",
+      "path": "mods/grim-kingdoms-lost-structures-ruins-vanilla-edition-2.0.0.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/grim-kingdoms-lost-structures-ruins-vanilla-edition-2.0.0.jar",
+      "sha1": "28e1ab04d330ac1e6146c31516a39c034dc4babe"
+    },
+    {
+      "name": "Highlighter",
+      "path": "mods/Highlighter-1.21.11-fabric-1.2.0.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/Highlighter-1.21.11-fabric-1.2.0.jar",
+      "sha1": "a5ba71e489a9f336dcaa087beb23c1f55cac630b"
+    },
+    {
+      "name": "Iceberg",
+      "path": "mods/Iceberg-1.21.11-fabric-1.4.0.1.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/Iceberg-1.21.11-fabric-1.4.0.1.jar",
+      "sha1": "911073f3958e22ff87920662e9e85e189243e1a2"
+    },
+    {
+      "name": "ImmediatelyFast",
+      "path": "mods/ImmediatelyFast-Fabric-1.14.2+1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/ImmediatelyFast-Fabric-1.14.2%2B1.21.11.jar",
+      "sha1": "4f17c6b7388f0afc5d24075dc2a294963f78c712"
+    },
+    {
+      "name": "Improved Village Placement",
+      "path": "mods/improved-village-placement-1.1.1.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/improved-village-placement-1.1.1.jar",
+      "sha1": "5225cdd0f18cabd290551ca93125dbdceb7a7755"
+    },
+    {
+      "name": "Just Enough Items",
+      "path": "mods/jei-1.21.11-fabric-27.35.0.90.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/jei-1.21.11-fabric-27.35.0.90.jar",
+      "sha1": "0166832a0e1518208b175c0be7654a3dc54de815"
+    },
+    {
+      "name": "Legendary Tooltips",
+      "path": "mods/LegendaryTooltips-1.21.11-fabric-1.6.0.1.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/LegendaryTooltips-1.21.11-fabric-1.6.0.1.jar",
+      "sha1": "dc50c4df74c632209df5417b9665c1344b180e62"
+    },
+    {
+      "name": "Let Me Despawn",
+      "path": "mods/LetMeDespawn-1.21.11-x-fabric-1.6.2.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/LetMeDespawn-1.21.11-x-fabric-1.6.2.jar",
+      "sha1": "c8f0b955d47e182e27929c1240efdaa09a6d10b9"
+    },
+    {
+      "name": "Lithium",
+      "path": "mods/lithium-fabric-0.21.4+mc1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/lithium-fabric-0.21.4%2Bmc1.21.11.jar",
+      "sha1": "203bdcb26e97b3217b045e1182651a7d7b6462ec"
+    },
+    {
+      "name": "Lithostitched",
+      "path": "mods/lithostitched-1.7.2-fabric-21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/lithostitched-1.7.2-fabric-21.11.jar",
+      "sha1": "d35f576f35115e406466fa426ec661a82b12e760"
+    },
+    {
+      "name": "Lootr",
+      "path": "mods/lootr-fabric-1.21.11-1.20.34.104.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/lootr-fabric-1.21.11-1.20.34.104.jar",
+      "sha1": "4d6d935f87b0f269148cfe6079dbed332b9133b8"
+    },
+    {
+      "name": "LY Clumps",
+      "path": "mods/ly-clumps-v1.1.0.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/ly-clumps-v1.1.0.jar",
+      "sha1": "5e385b356af7a07d565655fa0dfafe6b8d1d6816"
+    },
+    {
+      "name": "Mod Menu",
+      "path": "mods/modmenu-17.0.0.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/modmenu-17.0.0.jar",
+      "sha1": "544a8b340ac3918d85bcc7d02eaff5372814354b"
+    },
+    {
+      "name": "ModernFix",
+      "path": "mods/modernfix-5.26.3-build.1.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/modernfix-5.26.3-build.1.jar",
+      "sha1": "4b0758e7c052b20ebb58cde9de083520a3d114ab"
+    },
+    {
+      "name": "More Culling",
+      "path": "mods/moreculling-fabric-1.21.11-1.6.2.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/moreculling-fabric-1.21.11-1.6.2.jar",
+      "sha1": "11a929de62650cc536244d4c2ba889fa84c1c0f2"
+    },
+    {
+      "name": "Mouse Tweaks",
+      "path": "mods/MouseTweaks-fabric-mc1.21.11-2.30.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/MouseTweaks-fabric-mc1.21.11-2.30.jar",
+      "sha1": "86515de45fe960bd717deea0954055106e857b81"
+    },
+    {
+      "name": "Noisium",
+      "path": "mods/noisium-fabric-2.8.3+mc1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/noisium-fabric-2.8.3%2Bmc1.21.11.jar",
+      "sha1": "2851c7824664bc970367f89710ffd569f49a761c"
+    },
+    {
+      "name": "Player Animation Library",
+      "path": "mods/PlayerAnimationLibFabric-1.1.10+mc.1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/PlayerAnimationLibFabric-1.1.10%2Bmc.1.21.11.jar",
+      "sha1": "17b30135198506cf30f60831281a6356a3ed3924"
+    },
+    {
+      "name": "Player Charge Jump",
+      "path": "mods/playerchargejump-1.21.6_1.21.11-3.1.1.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/playerchargejump-1.21.6_1.21.11-3.1.1.jar",
+      "sha1": "3ded9b244b00a75f6fa883f61ee5e311cc0af2d7"
+    },
+    {
+      "name": "PneumonoCore",
+      "path": "mods/pneumonocore-1.3.1+1.21.11+A.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/pneumonocore-1.3.1%2B1.21.11%2BA.jar",
+      "sha1": "84468cbf8a3bf5b7d4ad0c4747350693908e35d1"
+    },
+    {
+      "name": "Prism",
+      "path": "mods/Prism-1.21.11-fabric-1.1.0.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/Prism-1.21.11-fabric-1.1.0.jar",
+      "sha1": "1d97d2665a0b3dd33994b3a68cbc585292016180"
+    },
+    {
+      "name": "Pufferfish's Biome Dither",
+      "path": "mods/puffish_biome_dither-1.0.0-1.21-fabric.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/puffish_biome_dither-1.0.0-1.21-fabric.jar",
+      "sha1": "b788259bd01fef199024381cf2fce18934bbd251"
+    },
+    {
+      "name": "R.E.P.O. Heads",
+      "path": "mods/repo-heads-1.2.0+1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/repo-heads-1.2.0%2B1.21.11.jar",
+      "sha1": "8b012ba5c86245a1bb1038c87df41ce5289868c6"
+    },
+    {
+      "name": "RenderScale",
+      "path": "mods/renderscale-fabric-1.21.11-1.3.6.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/renderscale-fabric-1.21.11-1.3.6.jar",
+      "sha1": "c3f7ec3c8e425667d39601a832addf26da1ff08d"
+    },
+    {
+      "name": "Shine",
+      "path": "mods/shine-3.0.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/shine-3.0.jar",
+      "sha1": "7cf09b3b3469340feda6268b45526e731945d067"
+    },
+    {
+      "name": "Shoulder Surfing Reloaded",
+      "path": "mods/ShoulderSurfing-Fabric-1.21.11-5.0.10.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/ShoulderSurfing-Fabric-1.21.11-5.0.10.jar",
+      "sha1": "6c7723bd064809b0ab7f2830cbd873d924fe4e5f"
+    },
+    {
+      "name": "Simple Voice Chat",
+      "path": "mods/voicechat-fabric-1.21.11-2.6.20.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/voicechat-fabric-1.21.11-2.6.20.jar",
+      "sha1": "c89ae178b319e83f1461368d2b93c917cd5ce578"
+    },
+    {
+      "name": "Sleep",
+      "path": "mods/sleep-v4.3.18.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/sleep-v4.3.18.jar",
+      "sha1": "4aa92e285eb5df7312f203a1a59ee58fa0cdaf36"
+    },
+    {
+      "name": "Sodium",
+      "path": "mods/sodium-fabric-0.8.12+mc1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/sodium-fabric-0.8.12%2Bmc1.21.11.jar",
+      "sha1": "4d80592bef36674e7469ae2737a7704b826289ae"
+    },
+    {
+      "name": "Sodium Extra",
+      "path": "mods/sodium-extra-fabric-0.9.1+mc1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/sodium-extra-fabric-0.9.1%2Bmc1.21.11.jar",
+      "sha1": "49783b5a7f2bec3330ab4e776f91620e5646ac87"
+    },
+    {
+      "name": "Some More Blocks",
+      "path": "mods/SomeMoreBlocks@fabric-1.21.11-1.9.0.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/SomeMoreBlocks%40fabric-1.21.11-1.9.0.jar",
+      "sha1": "31c49d3a23892b10af0f80812a7a4cd7863d0e47"
+    },
+    {
+      "name": "Sound Physics Remastered",
+      "path": "mods/sound-physics-remastered-fabric-1.21.11-1.5.1.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/sound-physics-remastered-fabric-1.21.11-1.5.1.jar",
+      "sha1": "f04c90b17094aaa849b147a42d4df9aa82d54ace"
+    },
+    {
+      "name": "Tectonic",
+      "path": "mods/tectonic-3.0.19-fabric-1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/tectonic-3.0.19-fabric-1.21.11.jar",
+      "sha1": "ab0ad94c096070d36a050ec2ad56f0525d280d8c"
+    },
+    {
+      "name": "ToadLib",
+      "path": "mods/ToadLib-1.4.4-1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/ToadLib-1.4.4-1.21.11.jar",
+      "sha1": "11e484dd7ab7ce1f8d2b006599778c5c22296aec"
+    },
+    {
+      "name": "Vanilla Refresh",
+      "path": "mods/vanilla-refresh-1.4.31.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/vanilla-refresh-1.4.31.jar",
+      "sha1": "862db085776676facbb16019fb8f451d26535625"
+    },
+    {
+      "name": "Voxy",
+      "path": "mods/voxy-0.2.16-beta+1.21.11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/voxy-0.2.16-beta%2B1.21.11.jar",
+      "sha1": "280a55279e0860d29146d908cd8a0246a12e2537"
+    },
+    {
+      "name": "Voxy World Gen V2",
+      "path": "mods/Voxy.World.Gen.V2-1.21.11-2.2.4.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/Voxy.World.Gen.V2-1.21.11-2.2.4.jar",
+      "sha1": "6a938370cda34eb8100273a24d312bde165c8f04"
+    },
+    {
+      "name": "Web",
+      "path": "mods/web-1.0.4-1-21-11.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/web-1.0.4-1-21-11.jar",
+      "sha1": "c3342ffe0143bb63a371d7c3f7892dd70e679c6c"
+    },
+    {
+      "name": "YetAnotherConfigLib",
+      "path": "mods/yet_another_config_lib_v3-3.8.2+1.21.11-fabric.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets/yet_another_config_lib_v3-3.8.2%2B1.21.11-fabric.jar",
+      "sha1": "f99cda70903f16dd6927a276150b2762b4d5ab66"
+    }
+  ]
 }
