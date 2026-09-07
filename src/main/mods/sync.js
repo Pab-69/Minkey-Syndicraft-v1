@@ -203,6 +203,18 @@ async function syncMods(manifestUrl, onProgress) {
   }
   writeArchiveLock(newArchiveLock);
 
+  // Retire des fichiers precis fournis par une archive (ex: un mod pose
+  // probleme dans un gros pack tout-en-un) sans avoir a re-heberger et
+  // re-telecharger l'archive entiere juste pour un fichier. Applique a
+  // chaque synchronisation (pas seulement quand l'archive change) pour
+  // rester fiable meme si l'extraction a ete sautee.
+  for (const relPath of manifest.excludes || []) {
+    const abs = path.resolve(path.join(instanceDir, relPath));
+    if (abs !== resolvedInstanceDir) {
+      await fsp.rm(abs, { recursive: true, force: true });
+    }
+  }
+
   const previousInstalled = readLock();
   const currentPaths = manifest.files.map((f) => f.path);
 

@@ -22,5 +22,8 @@
       "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets-3/BCG%2B.2.15.0.SF.zip",
       "sha1": "d480603e72d1754035ceb1b20f9167e84ccbec01"
     }
+  ],
+  "excludes": [
+    "mods/Chimes-v2.0.1-1.20.1-Fabric.jar"
   ]
 }

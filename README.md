@@ -102,14 +102,30 @@ livrés sous forme d'un seul `.zip` :
   l'instance (utile pour un "server pack" CurseForge/Modrinth qui contient
   déjà des dossiers `mods/`, `config/`, `kubejs/`... à sa racine).
 - Le contenu du dossier de destination est entièrement remplacé à chaque
-  changement de `sha1` — sauf si `path` pointe sur la racine de l'instance
-  elle-même, auquel cas le launcher fusionne sans rien supprimer au
-  préalable (sécurité : ne jamais risquer d'effacer Java, les mondes
-  sauvegardés ou les comptes).
+  changement de `sha1`. Si `path` pointe sur la racine de l'instance
+  elle-même, le launcher ne vide que les dossiers de contenu modpack
+  connus (`mods/`, `config/`, `kubejs/`, `resourcepacks/`, `shaderpacks/`,
+  `datapacks/`) avant d'extraire — jamais Java, les mondes sauvegardés ou
+  les comptes — pour qu'un changement complet de modpack ne laisse pas
+  d'anciens mods trainer à côté des nouveaux.
 - Pratique pour réutiliser directement le "Server Pack" téléchargeable
   depuis CurseForge/Modrinth (celui qui contient les vrais fichiers `.jar`
   des mods, pas juste des références) : héberge-le tel quel (une Release
   GitHub, vu sa taille) et référence-le avec `"path": "."`.
+
+### Retirer un fichier précis fourni par une grosse archive
+
+Si un seul mod dans un gros pack pose problème (crash, conflit...), pas
+besoin de reconstruire et re-héberger toute l'archive : le manifest
+supporte un tableau `excludes`, des chemins (relatifs au dossier
+d'instance, mêmes valeurs que dans `files`/`archives`) supprimés à chaque
+lancement, qu'ils viennent d'une archive ou d'ailleurs :
+
+```json
+"excludes": [
+  "mods/UnModProblematique.jar"
+]
+```
 
 ### Partager un resource pack / texture pack avec tout le monde
 
