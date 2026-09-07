@@ -264,6 +264,9 @@ window.launcher.onProgress((payload) => {
   if (payload.phase === 'mods' && payload.total) {
     statusText.textContent = `Téléchargement : ${payload.name} (${payload.index}/${payload.total})`;
     fill.style.width = `${Math.round((payload.index / payload.total) * 100)}%`;
+  } else if (payload.phase === 'archives' && payload.total) {
+    statusText.textContent = `Installation : ${payload.name} (${payload.index}/${payload.total})`;
+    fill.style.width = `${Math.round((payload.index / payload.total) * 100)}%`;
   } else if (payload.phase === 'download' && payload.total) {
     statusText.textContent = `Installation des fichiers du jeu (${payload.task})...`;
     fill.style.width = `${Math.round((payload.current / payload.total) * 100)}%`;

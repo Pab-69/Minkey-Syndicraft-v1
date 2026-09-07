@@ -2,8 +2,10 @@ const fs = require('fs');
 const fsp = fs.promises;
 const path = require('path');
 const crypto = require('crypto');
+const os = require('os');
 const { Readable } = require('stream');
 const { pipeline } = require('stream/promises');
+const extractZip = require('extract-zip');
 const config = require('../config');
 
 // Recupere le manifest distant (mods, version de Minecraft, adresse du serveur).
@@ -77,6 +79,54 @@ function writeLock(paths) {
   fs.writeFileSync(lockPath, JSON.stringify(paths, null, 2), 'utf-8');
 }
 
+// Verrou separe pour les archives (dossiers entiers comme config/ ou kubejs/,
+// trop nombreux en fichiers individuels pour etre distribues un par un) :
+// associe le dossier de destination au sha1 de l'archive installee, pour
+// savoir s'il faut re-telecharger/re-extraire sans avoir a tout re-hasher.
+function getInstalledArchivesLockPath() {
+  return path.join(config.getInstanceDir(), '.launcher', 'installed-archives.json');
+}
+
+function readArchiveLock() {
+  try {
+    const raw = fs.readFileSync(getInstalledArchivesLockPath(), 'utf-8');
+    const data = JSON.parse(raw);
+    return data && typeof data === 'object' ? data : {};
+  } catch {
+    return {};
+  }
+}
+
+function writeArchiveLock(map) {
+  const lockPath = getInstalledArchivesLockPath();
+  fs.mkdirSync(path.dirname(lockPath), { recursive: true });
+  fs.writeFileSync(lockPath, JSON.stringify(map, null, 2), 'utf-8');
+}
+
+// Telecharge une archive .zip (config/, kubejs/...) et l'extrait dans le
+// dossier de destination, en remplacant entierement son contenu precedent :
+// plus simple et plus sur qu'un merge fichier par fichier pour un dossier
+// gere entierement par l'hote (comme les mods).
+async function syncArchive(archive, instanceDir) {
+  const destDir = path.join(instanceDir, archive.path);
+  const tmpZip = path.join(os.tmpdir(), `minkey-archive-${crypto.randomUUID()}.zip`);
+
+  await downloadFile(archive.url, tmpZip);
+
+  if (archive.sha1) {
+    const actual = await sha1File(tmpZip);
+    if (actual.toLowerCase() !== archive.sha1.toLowerCase()) {
+      await fsp.rm(tmpZip, { force: true });
+      throw new Error(`Archive corrompue apres telechargement : ${archive.name || archive.path}`);
+    }
+  }
+
+  await fsp.rm(destDir, { recursive: true, force: true });
+  await fsp.mkdir(destDir, { recursive: true });
+  await extractZip(tmpZip, { dir: destDir });
+  await fsp.rm(tmpZip, { force: true });
+}
+
 // Synchronise le dossier de l'instance avec le manifest : telecharge les
 // fichiers manquants/modifies (mods, configs, resourcepacks...) et supprime
 // ceux qui ne sont plus references, sans jamais toucher aux fichiers que le
@@ -129,6 +179,36 @@ async function syncMods(manifestUrl, onProgress) {
   }
 
   writeLock(currentPaths);
+
+  // Archives (config/, kubejs/...) : dossiers entiers geres a part des
+  // fichiers individuels, trop nombreux pour etre distribues un par un.
+  const archives = manifest.archives || [];
+  const previousArchives = readArchiveLock();
+  const currentArchivePaths = archives.map((a) => a.path);
+
+  for (const oldPath of Object.keys(previousArchives)) {
+    if (!currentArchivePaths.includes(oldPath)) {
+      await fsp.rm(path.join(instanceDir, oldPath), { recursive: true, force: true });
+    }
+  }
+
+  const archivesToSync = archives.filter((a) => previousArchives[a.path] !== a.sha1);
+  for (let i = 0; i < archivesToSync.length; i++) {
+    const archive = archivesToSync[i];
+    report({
+      phase: 'archives',
+      index: i + 1,
+      total: archivesToSync.length,
+      name: archive.name || archive.path
+    });
+    await syncArchive(archive, instanceDir);
+  }
+
+  const newArchiveLock = {};
+  for (const archive of archives) {
+    newArchiveLock[archive.path] = archive.sha1;
+  }
+  writeArchiveLock(newArchiveLock);
 
   return { manifest, updated: total, removed: toRemove.length };
 }

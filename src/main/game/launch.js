@@ -3,6 +3,7 @@ const config = require('../config');
 const { ensureJava } = require('./java');
 const { ensureFabric } = require('./fabricInstaller');
 const { ensureForgeInstaller } = require('./forgeInstaller');
+const { ensureNeoForgeInstaller } = require('./neoforgeInstaller');
 
 // Prepare (Java, Fabric/Forge) puis lance Minecraft. Ne connecte pas
 // automatiquement a un serveur : chacun ajoute le serveur lui-meme depuis
@@ -42,6 +43,9 @@ async function launchGame({
   } else if (modLoader === 'forge') {
     report({ phase: 'loader', message: 'Installation de Forge...' });
     forgeInstallerPath = await ensureForgeInstaller(mcVersion, mc.loaderVersion);
+  } else if (modLoader === 'neoforge') {
+    report({ phase: 'loader', message: 'Installation de NeoForge...' });
+    forgeInstallerPath = await ensureNeoForgeInstaller(mc.loaderVersion);
   }
 
   report({ phase: 'launch', message: 'Preparation du lancement...' });
