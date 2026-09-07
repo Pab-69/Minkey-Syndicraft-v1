@@ -127,15 +127,16 @@ Le bloc `minecraft` du manifest :
 "minecraft": {
   "version": "1.21.11",
   "type": "release",
-  "modLoader": "fabric",
-  "loaderVersion": "latest"
+  "modLoader": "vanilla"
 }
 ```
 
-- `modLoader` : `fabric` (recommandé, entièrement automatisé) ou `forge`.
-- `loaderVersion` : pour Fabric, `"latest"` prend la dernière version stable
-  automatiquement, ou précise un numéro exact. Pour Forge, il faut préciser
-  le numéro exact de version Forge (ex: `"47.2.20"`).
+- `modLoader` : `vanilla` (Minecraft normal, sans mod), `fabric` (recommandé
+  dès qu'il y a des mods, entièrement automatisé) ou `forge`.
+- `loaderVersion` : uniquement pour Fabric et Forge (pas pour `vanilla`).
+  Pour Fabric, `"latest"` prend la dernière version stable automatiquement,
+  ou précise un numéro exact. Pour Forge, il faut préciser le numéro exact
+  de version Forge (ex: `"47.2.20"`).
 
 ### Adresse du serveur
 
