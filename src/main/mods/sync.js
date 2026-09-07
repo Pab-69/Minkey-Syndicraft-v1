@@ -150,6 +150,45 @@ async function syncMods(manifestUrl, onProgress) {
   const manifest = await fetchManifest(manifestUrl);
 
   const instanceDir = config.getInstanceDir();
+
+  // Archives (config/, kubejs/, un pack complet...) : dossiers entiers geres
+  // a part des fichiers individuels, trop nombreux pour etre distribues un
+  // par un. Traitees AVANT les fichiers individuels : ca permet a une
+  // entree de "files" de remplacer volontairement un fichier fourni par une
+  // archive (ex: mise a jour ponctuelle d'un mod deja inclus dans un gros
+  // pack), sans quoi la ré-extraction de l'archive écraserait la mise à jour.
+  const archives = manifest.archives || [];
+  const previousArchives = readArchiveLock();
+  const currentArchivePaths = archives.map((a) => a.path);
+
+  const resolvedInstanceDir = path.resolve(instanceDir);
+  for (const oldPath of Object.keys(previousArchives)) {
+    if (!currentArchivePaths.includes(oldPath)) {
+      const abs = path.resolve(path.join(instanceDir, oldPath || '.'));
+      if (abs !== resolvedInstanceDir) {
+        await fsp.rm(abs, { recursive: true, force: true });
+      }
+    }
+  }
+
+  const archivesToSync = archives.filter((a) => previousArchives[a.path] !== a.sha1);
+  for (let i = 0; i < archivesToSync.length; i++) {
+    const archive = archivesToSync[i];
+    report({
+      phase: 'archives',
+      index: i + 1,
+      total: archivesToSync.length,
+      name: archive.name || archive.path
+    });
+    await syncArchive(archive, instanceDir);
+  }
+
+  const newArchiveLock = {};
+  for (const archive of archives) {
+    newArchiveLock[archive.path] = archive.sha1;
+  }
+  writeArchiveLock(newArchiveLock);
+
   const previousInstalled = readLock();
   const currentPaths = manifest.files.map((f) => f.path);
 
@@ -188,40 +227,6 @@ async function syncMods(manifestUrl, onProgress) {
   }
 
   writeLock(currentPaths);
-
-  // Archives (config/, kubejs/...) : dossiers entiers geres a part des
-  // fichiers individuels, trop nombreux pour etre distribues un par un.
-  const archives = manifest.archives || [];
-  const previousArchives = readArchiveLock();
-  const currentArchivePaths = archives.map((a) => a.path);
-
-  const resolvedInstanceDir = path.resolve(instanceDir);
-  for (const oldPath of Object.keys(previousArchives)) {
-    if (!currentArchivePaths.includes(oldPath)) {
-      const abs = path.resolve(path.join(instanceDir, oldPath || '.'));
-      if (abs !== resolvedInstanceDir) {
-        await fsp.rm(abs, { recursive: true, force: true });
-      }
-    }
-  }
-
-  const archivesToSync = archives.filter((a) => previousArchives[a.path] !== a.sha1);
-  for (let i = 0; i < archivesToSync.length; i++) {
-    const archive = archivesToSync[i];
-    report({
-      phase: 'archives',
-      index: i + 1,
-      total: archivesToSync.length,
-      name: archive.name || archive.path
-    });
-    await syncArchive(archive, instanceDir);
-  }
-
-  const newArchiveLock = {};
-  for (const archive of archives) {
-    newArchiveLock[archive.path] = archive.sha1;
-  }
-  writeArchiveLock(newArchiveLock);
 
   return { manifest, updated: total, removed: toRemove.length };
 }

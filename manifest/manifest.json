@@ -1,5 +1,5 @@
 {
-  "modpackVersion": "3.0.0",
+  "modpackVersion": "3.1.0",
   "minecraft": {
     "version": "1.21.1",
     "type": "release",
@@ -7,7 +7,50 @@
     "loaderVersion": "21.1.249"
   },
   "info": "Bienvenue sur Minkey Syndicraft !\n\nAjoute ici les dernières infos pour la bande (règles, date de l'aventure, changements récents...). Ce texte est modifiable à tout moment dans manifest.json et se met à jour tout seul chez tout le monde.",
-  "files": [],
+  "files": [
+    {
+      "name": "Cobblemon: Shiny & Legendary Fossils",
+      "path": "mods/shinyfossils-0.9.3.jar",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/shinyfossils-0.9.3.jar",
+      "sha1": "fb6d29687d9f6826f3475ef4465e5a64122e73f0"
+    },
+    {
+      "name": "Cobbled Gacha",
+      "path": "mods/cobbledgacha-neoforge-1.21.1-3.0.3.jar",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/cobbledgacha-neoforge-1.21.1-3.0.3.jar",
+      "sha1": "a2450dd08503743f4ac313f67f6007f7161afae9"
+    },
+    {
+      "name": "CobbleDollars",
+      "path": "mods/CobbleDollars-neoforge-2.0.0-Beta-6.1-1.21.1.jar",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/CobbleDollars-neoforge-2.0.0-Beta-6.1-1.21.1.jar",
+      "sha1": "3d4559f77fc47d10ccac7079dbaefd1c414636c3"
+    },
+    {
+      "name": "Cobblemon: Mega Showdown (hotfix)",
+      "path": "mods/mega_showdown-neoforge-1.9.9+1.7.3+1.21.1.jar",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/mega_showdown-neoforge-1.9.9+1.7.3+1.21.1.jar",
+      "sha1": "1e5dcaf94cce37e2ee1869414670b1a94dc2b5f3"
+    },
+    {
+      "name": "Tom's Simple Storage Mod",
+      "path": "mods/toms_storage-1.2-12.4.2.jar",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/toms_storage-1.2-12.4.2.jar",
+      "sha1": "592af3bc4768c804c4929af16961ca2a1a916942"
+    },
+    {
+      "name": "Cobblemon Capture XP",
+      "path": "mods/capturexp-neoforge-1.7.3-1.3.0.jar",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/capturexp-neoforge-1.7.3-1.3.0.jar",
+      "sha1": "49bd6e318afc2d9f99d1bbd753012738ecc3c7ed"
+    },
+    {
+      "name": "Spawn Notification",
+      "path": "mods/spawnnotification-neoforge-1.7.3-2.3.0.jar",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/spawnnotification-neoforge-1.7.3-2.3.0.jar",
+      "sha1": "08055af44dec329d03dc10f3a93af25f2167567b"
+    }
+  ],
   "archives": [
     {
       "name": "Modpack complet (mods, config, kubejs)",
