@@ -1,5 +1,5 @@
 {
-  "modpackVersion": "5.0.0",
+  "modpackVersion": "5.1.0",
   "minecraft": {
     "version": "1.20.1",
     "type": "release",
@@ -7,7 +7,14 @@
     "loaderVersion": "0.18.1"
   },
   "info": "Bienvenue sur Minkey Syndicraft !\n\nAjoute ici les dernières infos pour la bande (règles, date de l'aventure, changements récents...). Ce texte est modifiable à tout moment dans manifest.json et se met à jour tout seul chez tout le monde.",
-  "files": [],
+  "files": [
+    {
+      "name": "CobbleDollars",
+      "path": "mods/CobbleDollars-fabric-1.5.2-1.20.1.jar",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/CobbleDollars-fabric-1.5.2-1.20.1.jar",
+      "sha1": "95925626ab0b502e90f4ca61827d7fec256b248a"
+    }
+  ],
   "archives": [
     {
       "name": "Modpack complet (mods, config, kubejs, resourcepacks)",

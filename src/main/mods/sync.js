@@ -103,13 +103,23 @@ function writeArchiveLock(map) {
   fs.writeFileSync(lockPath, JSON.stringify(map, null, 2), 'utf-8');
 }
 
+// Dossiers de contenu modpack qu'une archive extraite a la racine de
+// l'instance est censee posseder entierement (comme pour un dossier normal
+// type config/ ou kubejs/). Nettoyes avant extraction pour qu'un changement
+// complet de modpack ne laisse pas trainer les mods de l'ancien pack a cote
+// des nouveaux. Ne touche jamais aux dossiers geres par MCLC lui-meme
+// (versions/, libraries/, assets/, natives/) ni aux donnees du joueur
+// (saves/, options.txt, screenshots/...).
+const ARCHIVE_OWNED_ROOT_FOLDERS = ['mods', 'config', 'kubejs', 'resourcepacks', 'shaderpacks', 'datapacks'];
+
 // Telecharge une archive .zip (config/, kubejs/, ou un pack complet a
 // extraire a la racine de l'instance) et l'extrait dans le dossier de
 // destination. Par securite, ne vide JAMAIS la racine de l'instance elle-meme
 // (ecraserait Java, les mondes, les comptes...) meme si un manifest mal
-// ecrit pointait "path" dessus par erreur : dans ce cas on fusionne sans
-// nettoyer prealablement. Pour un sous-dossier normal (config/, mods/...),
-// le contenu precedent est entierement remplace : plus simple et plus sur
+// ecrit pointait "path" dessus par erreur : dans ce cas on nettoie seulement
+// les dossiers de contenu modpack connus (voir ARCHIVE_OWNED_ROOT_FOLDERS)
+// avant de fusionner. Pour un sous-dossier normal (config/, mods/...), le
+// contenu precedent est entierement remplace : plus simple et plus sur
 // qu'un merge fichier par fichier pour un dossier gere entierement par l'hote.
 async function syncArchive(archive, instanceDir) {
   const destDir = path.resolve(path.join(instanceDir, archive.path || '.'));
@@ -130,6 +140,10 @@ async function syncArchive(archive, instanceDir) {
 
   if (!isInstanceRoot) {
     await fsp.rm(destDir, { recursive: true, force: true });
+  } else {
+    for (const folder of ARCHIVE_OWNED_ROOT_FOLDERS) {
+      await fsp.rm(path.join(destDir, folder), { recursive: true, force: true });
+    }
   }
   await fsp.mkdir(destDir, { recursive: true });
   await extractZip(tmpZip, { dir: destDir });
