@@ -79,6 +79,38 @@ bouton.
 - Retirer une entrée du manifest supprime automatiquement le fichier chez
   tout le monde au prochain lancement.
 
+### Distribuer un modpack complet (dossier `config/`, `kubejs/`...)
+
+Pour un gros modpack, distribuer chaque fichier de config un par un dans
+`files` n'est pas pratique (parfois plusieurs centaines de petits fichiers).
+Le manifest supporte aussi un tableau `archives`, pour des dossiers entiers
+livrés sous forme d'un seul `.zip` :
+
+```json
+"archives": [
+  {
+    "name": "Modpack complet (mods, config, kubejs)",
+    "path": ".",
+    "url": "https://.../ServerFiles.zip",
+    "sha1": "l-empreinte-du-zip"
+  }
+]
+```
+
+- `path` est le dossier de destination (relatif au dossier d'instance) où le
+  contenu du zip est extrait. `"."` extrait directement à la racine de
+  l'instance (utile pour un "server pack" CurseForge/Modrinth qui contient
+  déjà des dossiers `mods/`, `config/`, `kubejs/`... à sa racine).
+- Le contenu du dossier de destination est entièrement remplacé à chaque
+  changement de `sha1` — sauf si `path` pointe sur la racine de l'instance
+  elle-même, auquel cas le launcher fusionne sans rien supprimer au
+  préalable (sécurité : ne jamais risquer d'effacer Java, les mondes
+  sauvegardés ou les comptes).
+- Pratique pour réutiliser directement le "Server Pack" téléchargeable
+  depuis CurseForge/Modrinth (celui qui contient les vrais fichiers `.jar`
+  des mods, pas juste des références) : héberge-le tel quel (une Release
+  GitHub, vu sa taille) et référence-le avec `"path": "."`.
+
 ### Partager un resource pack / texture pack avec tout le monde
 
 Tu peux changer le resource pack en pleine aventure, oui. Deux étapes,
@@ -125,18 +157,21 @@ Le bloc `minecraft` du manifest :
 
 ```json
 "minecraft": {
-  "version": "1.21.11",
+  "version": "1.21.1",
   "type": "release",
-  "modLoader": "vanilla"
+  "modLoader": "neoforge",
+  "loaderVersion": "21.1.249"
 }
 ```
 
 - `modLoader` : `vanilla` (Minecraft normal, sans mod), `fabric` (recommandé
-  dès qu'il y a des mods, entièrement automatisé) ou `forge`.
-- `loaderVersion` : uniquement pour Fabric et Forge (pas pour `vanilla`).
-  Pour Fabric, `"latest"` prend la dernière version stable automatiquement,
-  ou précise un numéro exact. Pour Forge, il faut préciser le numéro exact
-  de version Forge (ex: `"47.2.20"`).
+  dès qu'il y a des mods, entièrement automatisé), `forge` ou `neoforge`.
+- `loaderVersion` : uniquement pour Fabric, Forge et NeoForge (pas pour
+  `vanilla`). Pour Fabric, `"latest"` prend la dernière version stable
+  automatiquement, ou précise un numéro exact. Pour Forge, il faut préciser
+  le numéro exact de version Forge (ex: `"47.2.20"`). Pour NeoForge, le
+  numéro de version NeoForge tel quel (ex: `"21.1.249"`, sans le préfixe de
+  version Minecraft).
 
 ### Adresse du serveur
 

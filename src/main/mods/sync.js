@@ -103,12 +103,19 @@ function writeArchiveLock(map) {
   fs.writeFileSync(lockPath, JSON.stringify(map, null, 2), 'utf-8');
 }
 
-// Telecharge une archive .zip (config/, kubejs/...) et l'extrait dans le
-// dossier de destination, en remplacant entierement son contenu precedent :
-// plus simple et plus sur qu'un merge fichier par fichier pour un dossier
-// gere entierement par l'hote (comme les mods).
+// Telecharge une archive .zip (config/, kubejs/, ou un pack complet a
+// extraire a la racine de l'instance) et l'extrait dans le dossier de
+// destination. Par securite, ne vide JAMAIS la racine de l'instance elle-meme
+// (ecraserait Java, les mondes, les comptes...) meme si un manifest mal
+// ecrit pointait "path" dessus par erreur : dans ce cas on fusionne sans
+// nettoyer prealablement. Pour un sous-dossier normal (config/, mods/...),
+// le contenu precedent est entierement remplace : plus simple et plus sur
+// qu'un merge fichier par fichier pour un dossier gere entierement par l'hote.
 async function syncArchive(archive, instanceDir) {
-  const destDir = path.join(instanceDir, archive.path);
+  const destDir = path.resolve(path.join(instanceDir, archive.path || '.'));
+  const resolvedInstanceDir = path.resolve(instanceDir);
+  const isInstanceRoot = destDir === resolvedInstanceDir;
+
   const tmpZip = path.join(os.tmpdir(), `minkey-archive-${crypto.randomUUID()}.zip`);
 
   await downloadFile(archive.url, tmpZip);
@@ -121,7 +128,9 @@ async function syncArchive(archive, instanceDir) {
     }
   }
 
-  await fsp.rm(destDir, { recursive: true, force: true });
+  if (!isInstanceRoot) {
+    await fsp.rm(destDir, { recursive: true, force: true });
+  }
   await fsp.mkdir(destDir, { recursive: true });
   await extractZip(tmpZip, { dir: destDir });
   await fsp.rm(tmpZip, { force: true });
@@ -186,9 +195,13 @@ async function syncMods(manifestUrl, onProgress) {
   const previousArchives = readArchiveLock();
   const currentArchivePaths = archives.map((a) => a.path);
 
+  const resolvedInstanceDir = path.resolve(instanceDir);
   for (const oldPath of Object.keys(previousArchives)) {
     if (!currentArchivePaths.includes(oldPath)) {
-      await fsp.rm(path.join(instanceDir, oldPath), { recursive: true, force: true });
+      const abs = path.resolve(path.join(instanceDir, oldPath || '.'));
+      if (abs !== resolvedInstanceDir) {
+        await fsp.rm(abs, { recursive: true, force: true });
+      }
     }
   }
 
