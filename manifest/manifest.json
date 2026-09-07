@@ -1,12 +1,19 @@
 {
-  "modpackVersion": "4.0.0",
+  "modpackVersion": "5.0.0",
   "minecraft": {
-    "version": "1.21.1",
+    "version": "1.20.1",
     "type": "release",
-    "modLoader": "neoforge",
-    "loaderVersion": "21.1.249"
+    "modLoader": "fabric",
+    "loaderVersion": "0.18.1"
   },
   "info": "Bienvenue sur Minkey Syndicraft !\n\nAjoute ici les dernières infos pour la bande (règles, date de l'aventure, changements récents...). Ce texte est modifiable à tout moment dans manifest.json et se met à jour tout seul chez tout le monde.",
   "files": [],
-  "archives": []
+  "archives": [
+    {
+      "name": "Modpack complet (mods, config, kubejs, resourcepacks)",
+      "path": ".",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets-3/BCG%2B.2.15.0.SF.zip",
+      "sha1": "d480603e72d1754035ceb1b20f9167e84ccbec01"
+    }
+  ]
 }
