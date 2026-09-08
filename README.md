@@ -166,14 +166,34 @@ le pack de 146 mods, pas besoin de l'ajouter en double). FancyMenu est
 purement côté client (visuel uniquement, aucun bloc/item ajouté) : inutile
 de l'installer sur le serveur dédié.
 
-FancyMenu se configure directement en jeu via son éditeur visuel (pas besoin
-d'écrire de JSON à la main) : lance le jeu depuis le launcher, une fois sur
-l'écran titre cherche le bouton/la touche pour activer le mode édition, et
-construis ton menu (fond, logo, boutons, raccourci vers le serveur...) en
-glisser-déposer. Le mod sauvegarde ensuite un fichier de configuration dans
-`config/fancymenu/` — envoie-le-moi une fois fait et je l'ajoute au manifest
-(en `files`, un fichier par chemin dans `config/fancymenu/...`) pour que
-tout le monde ait le même résultat automatiquement.
+FancyMenu se configure uniquement via son éditeur visuel en jeu (il n'existe
+pas de format de fichier texte/JSON à écrire à la main — le fichier que le
+mod sauvegarde est un format interne propre à FancyMenu). Pas grave : une
+fois que tu l'as fait une fois, j'automatise pour tout le monde (voir plus
+bas).
+
+**Le nom "COMPUTERING PACK ULTIMATE" est déjà en place**, via le resource
+pack (`resourcepacks/MinkeySyndicraft.zip`) qui remplace le logo texte de
+l'écran titre — rien à faire, il apparaît directement pour tout le monde.
+
+**Pour le fond d'écran statique** (à la place du panorama 3D qui tourne),
+l'image du launcher est déjà distribuée à tout le monde à l'emplacement que
+FancyMenu utilise (`config/fancymenu/assets/menu_background.jpg`), il ne
+reste que 2 minutes de config visuelle à faire une seule fois :
+
+1. Lance le jeu, sur l'écran titre active la barre de menu FancyMenu
+   (**CTRL + ALT + C** si elle n'apparaît pas).
+2. **Customization → Current Screen Customization → Enabled**, puis
+   **Layouts → New → For Current Screen**.
+3. Dans l'éditeur, clic droit sur le fond → **Menu Backgrounds** → active le
+   type **Image** → choisis **Local** → sélectionne
+   `config/fancymenu/assets/menu_background.jpg`.
+4. **Layout → Save**, puis quitte l'éditeur.
+5. Va dans `config/fancymenu/` (dans le dossier de l'instance du launcher)
+   et envoie-moi ce dossier (zippe-le) — je l'ajoute au manifest (voir le
+   [guide FancyMenu pour les modpacks](https://docs.fancymenu.net/modpacks))
+   pour que le fond s'applique automatiquement chez tout le monde, sans que
+   chacun ait à refaire la manip.
 
 ### Changer la version de Minecraft / le mod loader
 
