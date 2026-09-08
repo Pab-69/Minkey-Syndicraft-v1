@@ -1,29 +1,29 @@
 {
-  "modpackVersion": "5.1.0",
+  "modpackVersion": "6.0.0",
   "minecraft": {
-    "version": "1.20.1",
+    "version": "1.21.1",
     "type": "release",
-    "modLoader": "fabric",
-    "loaderVersion": "0.18.1"
+    "modLoader": "neoforge",
+    "loaderVersion": "21.1.249"
   },
   "info": "Bienvenue sur Minkey Syndicraft !\n\nAjoute ici les dernières infos pour la bande (règles, date de l'aventure, changements récents...). Ce texte est modifiable à tout moment dans manifest.json et se met à jour tout seul chez tout le monde.",
   "files": [
     {
-      "name": "CobbleDollars",
-      "path": "mods/CobbleDollars-fabric-1.5.2-1.20.1.jar",
-      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/CobbleDollars-fabric-1.5.2-1.20.1.jar",
-      "sha1": "95925626ab0b502e90f4ca61827d7fec256b248a"
+      "name": "Tim's Ultimately Comprehensive Cobblemon Edits of Destiny",
+      "path": "mods/tims-ultimately-comprehensive-cobblemon-edits-of-destiny-1.6.1-4.jar",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/tims-ultimately-comprehensive-cobblemon-edits-of-destiny-1.6.1-4.jar",
+      "sha1": "6bcf0960b89c2fff8492ef689dbd052b774e4148"
     }
   ],
   "archives": [
     {
-      "name": "Modpack complet (mods, config, kubejs, resourcepacks)",
+      "name": "Modpack complet (146 mods)",
       "path": ".",
-      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets-3/BCG%2B.2.15.0.SF.zip",
-      "sha1": "d480603e72d1754035ceb1b20f9167e84ccbec01"
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/mods-assets-4/mods.zip",
+      "sha1": "ae1199f310e7e8adc652d5dcb600459e8f905827"
     }
   ],
   "excludes": [
-    "mods/Chimes-v2.0.1-1.20.1-Fabric.jar"
+    "mods/tims-ultimately-comprehensive-cobblemon-edits-of-destiny-1.6.1-4.zip"
   ]
 }
