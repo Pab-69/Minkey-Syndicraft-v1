@@ -1,5 +1,5 @@
 {
-  "modpackVersion": "6.0.0",
+  "modpackVersion": "6.1.0",
   "minecraft": {
     "version": "1.21.1",
     "type": "release",
@@ -13,6 +13,24 @@
       "path": "mods/tims-ultimately-comprehensive-cobblemon-edits-of-destiny-1.6.1-4.jar",
       "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/tims-ultimately-comprehensive-cobblemon-edits-of-destiny-1.6.1-4.jar",
       "sha1": "6bcf0960b89c2fff8492ef689dbd052b774e4148"
+    },
+    {
+      "name": "FancyMenu",
+      "path": "mods/fancymenu_neoforge_3.9.12_MC_1.21.1.jar",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/fancymenu_neoforge_3.9.12_MC_1.21.1.jar",
+      "sha1": "388d2380529fc175bfe1337e1a5b46b694284ccb"
+    },
+    {
+      "name": "Melody (dependance de FancyMenu)",
+      "path": "mods/melody_neoforge_1.0.10_MC_1.21.jar",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/melody_neoforge_1.0.10_MC_1.21.jar",
+      "sha1": "e83052a92c4ca0016bcfe7f0207273983dc84698"
+    },
+    {
+      "name": "Resource pack Minkey Syndicraft (menu principal)",
+      "path": "resourcepacks/MinkeySyndicraft.zip",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/resourcepacks/MinkeySyndicraft.zip",
+      "sha1": "7f5a4a0f90bfd5b3aaca691f98b5f89558d42df5"
     }
   ],
   "archives": [

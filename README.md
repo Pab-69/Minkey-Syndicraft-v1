@@ -129,7 +129,15 @@ lancement, qu'ils viennent d'une archive ou d'ailleurs :
 
 ### Partager un resource pack / texture pack avec tout le monde
 
-Tu peux changer le resource pack en pleine aventure, oui. Deux étapes,
+Un resource pack "Minkey Syndicraft" est déjà distribué automatiquement à
+tout le monde via le manifest (`resourcepacks/MinkeySyndicraft.zip`) : il
+remplace le logo "Minecraft" de l'écran titre par le logo du groupe et
+ajoute quelques splash texts custom. Comme n'importe quel resource pack,
+chaque joueur doit l'activer **une seule fois** : Options → Resource Packs →
+le faire passer dans "Sélectionné(s)". Une fois activé, Minecraft s'en
+souvient tout seul.
+
+Pour changer/ajouter un resource pack en pleine aventure, deux étapes,
 complémentaires :
 
 1. **Distribuer le fichier automatiquement** : ajoute-le au manifest comme
@@ -151,21 +159,21 @@ complémentaires :
 
 ### Personnaliser le menu principal de Minecraft
 
-Pour remplacer l'écran titre de Minecraft (celui avec "Minecraft Java
-Edition") par votre propre déco, on utilise le mod
-[FancyMenu](https://modrinth.com/mod/fancymenu) (version Fabric). Il faut
-l'ajouter au manifest avec ses deux dépendances obligatoires **Konkrete** et
-**Melody** (sans quoi FancyMenu ne se charge pas), plus la **Fabric API**
-qu'il lui faut aussi pour fonctionner — toutes dans la version compatible
-avec la version de Minecraft du manifest (voir plus bas).
+Le mod [FancyMenu](https://modrinth.com/mod/fancymenu) (version NeoForge,
+adaptée à la version actuelle du modpack) est déjà installé, avec sa
+dépendance **Melody** (Konkrete, son autre dépendance, est déjà fournie par
+le pack de 146 mods, pas besoin de l'ajouter en double). FancyMenu est
+purement côté client (visuel uniquement, aucun bloc/item ajouté) : inutile
+de l'installer sur le serveur dédié.
 
 FancyMenu se configure directement en jeu via son éditeur visuel (pas besoin
 d'écrire de JSON à la main) : lance le jeu depuis le launcher, une fois sur
 l'écran titre cherche le bouton/la touche pour activer le mode édition, et
-construis ton menu (fond, logo, boutons) en glisser-déposer. Le
-mod sauvegarde ensuite un fichier de configuration dans
+construis ton menu (fond, logo, boutons, raccourci vers le serveur...) en
+glisser-déposer. Le mod sauvegarde ensuite un fichier de configuration dans
 `config/fancymenu/` — envoie-le-moi une fois fait et je l'ajoute au manifest
-pour que tout le monde ait le même résultat automatiquement.
+(en `files`, un fichier par chemin dans `config/fancymenu/...`) pour que
+tout le monde ait le même résultat automatiquement.
 
 ### Changer la version de Minecraft / le mod loader
 
