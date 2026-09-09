@@ -1,5 +1,5 @@
 {
-  "modpackVersion": "6.2.0",
+  "modpackVersion": "6.3.0",
   "minecraft": {
     "version": "1.21.1",
     "type": "release",
@@ -30,7 +30,7 @@
       "name": "Resource pack Minkey Syndicraft (menu principal)",
       "path": "resourcepacks/MinkeySyndicraft.zip",
       "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/resourcepacks/MinkeySyndicraft.zip",
-      "sha1": "b334270500b70991a787de660090292bef1ce0c1"
+      "sha1": "cd2cbe23d5a01670e27969576bd065e6d37e2cf9"
     },
     {
       "name": "Fond d'ecran menu principal (pour FancyMenu)",
