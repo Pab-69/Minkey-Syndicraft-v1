@@ -259,12 +259,25 @@ Pour publier une nouvelle version :
 ## Skins pour les comptes sans compte Microsoft
 
 Un compte "sans compte" (crack) n'a normalement pas de skin personnalisé côté
-Mojang. Pour que ça marche quand même pour tout le monde (comptes officiels
-ou non), ajoute le mod [CustomSkinLoader](https://modrinth.com/mod/customskinloader)
-à ton `manifest.json` comme n'importe quel autre mod : le launcher dépose
-automatiquement le skin choisi par chaque joueur dans le dossier que ce mod
-lit (`CustomSkinLoader/LocalSkin/<pseudo>.png`), configuré en source
-"Local Skin API".
+Mojang. Le mod [CustomSkinLoader](https://modrinth.com/mod/customskinloader)
+est déjà installé pour régler ça : le launcher dépose automatiquement le
+skin choisi par chaque joueur dans le dossier que ce mod lit
+(`CustomSkinLoader/LocalSkin/skins/<pseudo>.png`), sans configuration
+supplémentaire ("LocalSkin" fonctionne directement, pas besoin de config).
+
+**Limite importante à connaître** : en mode "LocalSkin", chaque joueur ne
+voit **que son propre skin custom sur lui-même** — les autres joueurs le
+voient toujours avec le skin par défaut (Steve/Alex), puisque ce fichier
+reste local à sa propre machine. C'est une limite du mod, pas un bug du
+launcher.
+
+Pour que **tout le monde voie le skin de tout le monde**, il suffit de
+distribuer les skins de chacun à tout le monde via le manifest, exactement
+comme un mod : demande à chaque joueur son fichier skin (PNG 64×64) et son
+pseudo exact, ajoute chaque fichier en `files` avec
+`"path": "CustomSkinLoader/LocalSkin/skins/<pseudo-exact>.png"`, et chaque
+client aura alors le skin de tout le monde en local — donc visible par
+tout le monde, sans serveur de skins à héberger.
 
 ## Personnalisation (logo et fond d'écran)
 

@@ -97,11 +97,13 @@ async function clearSkin() {
 
 // A appeler juste avant de lancer le jeu : copie le skin choisi dans le
 // dossier local du mod CustomSkinLoader, sous le nom du pseudo actuel.
+// Chemin exact impose par le mod : LocalSkin/skins/<pseudo>.png (le sous-
+// dossier "skins" est obligatoire, CustomSkinLoader l'ignore sinon).
 async function syncSkinToInstance(username) {
   const source = currentSkinPath();
   if (!fs.existsSync(source)) return false;
 
-  const targetDir = path.join(config.getInstanceDir(), 'CustomSkinLoader', 'LocalSkin');
+  const targetDir = path.join(config.getInstanceDir(), 'CustomSkinLoader', 'LocalSkin', 'skins');
   await fsp.mkdir(targetDir, { recursive: true });
   await fsp.copyFile(source, path.join(targetDir, `${username}.png`));
   return true;
