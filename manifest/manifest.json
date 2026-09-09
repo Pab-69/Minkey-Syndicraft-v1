@@ -1,5 +1,5 @@
 {
-  "modpackVersion": "6.5.0",
+  "modpackVersion": "6.5.1",
   "minecraft": {
     "version": "1.21.1",
     "type": "release",
@@ -42,7 +42,7 @@
       "name": "Robot NPCs",
       "path": "mods/robotnpcs-1.0.0.jar",
       "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/robotnpcs-1.0.0.jar",
-      "sha1": "d6271f15f2c62b5124538405fa4c5af8613fca8d"
+      "sha1": "04c4d96ea45a2908beb5fa11509272b9424c9690"
     },
     {
       "name": "Resource pack Minkey Syndicraft (menu principal)",
