@@ -157,6 +157,28 @@ complémentaires :
    garantit que tout le monde voit vraiment la même chose, indépendamment de
    ce que chacun a coché dans ses options.
 
+### Shaders
+
+Le pack de 146 mods inclut déjà [Iris](https://modrinth.com/mod/iris) (et sa
+dépendance Sodium) : le chargeur de shaders. Rien à installer côté serveur,
+c'est purement client.
+
+Deux shaders sont distribués automatiquement à tout le monde via le manifest
+(`shaderpacks/BSL_v10.1.5.zip` et `shaderpacks/ComplementaryReimagined_r5.9.zip`).
+**Complementary Reimagined est activé automatiquement** chez tout le monde au
+lancement (le launcher écrit `shaderPack=...` et `enableShaders=true` dans
+`config/iris.properties`) — personne n'a besoin d'aller le sélectionner à la
+main dans le menu Iris. BSL est fourni en plus, mais reste à activer
+manuellement par qui veut l'essayer (Options → Shaders Menu).
+
+Pour ajouter un autre shader :
+1. Ajoute le `.zip` du shaderpack au manifest comme un fichier normal, avec
+   `"path": "shaderpacks/mon-shader.zip"`.
+2. Pour l'activer automatiquement chez tout le monde (à la place de
+   Complementary), ajoute `"activateShader": true` à cette entrée du manifest
+   (et retire ce champ de l'ancien shader actif, sinon c'est le dernier
+   traité dans l'ordre du fichier qui gagne).
+
 ### Personnaliser le menu principal de Minecraft
 
 Le mod [FancyMenu](https://modrinth.com/mod/fancymenu) (version NeoForge,

@@ -266,6 +266,13 @@ async function syncMods(manifestUrl, onProgress) {
         // ignore : au pire le joueur l'active lui-meme une fois dans les options
       }
     }
+    if (file.activateShader && file.path.startsWith('shaderpacks/')) {
+      try {
+        enableShaderPack(instanceDir, path.basename(file.path));
+      } catch {
+        // ignore : au pire le joueur l'active lui-meme dans le menu Iris
+      }
+    }
   }
 
   return { manifest, updated: total, removed: toRemove.length };
@@ -306,6 +313,34 @@ function enableResourcePack(instanceDir, fileName) {
   }
 
   fs.writeFileSync(optionsPath, lines.join('\n'), 'utf-8');
+}
+
+// Selectionne un shader dans la config du mod Iris (deja present dans le
+// pack) : config/iris.properties, cle "shaderPack" = nom exact du fichier
+// dans shaderpacks/, cle "enableShaders" = true. Preserve toute autre ligne
+// deja presente (reglages avances choisis par le joueur en jeu).
+function enableShaderPack(instanceDir, fileName) {
+  const irisConfigPath = path.join(instanceDir, 'config', 'iris.properties');
+
+  let lines = [];
+  if (fs.existsSync(irisConfigPath)) {
+    lines = fs.readFileSync(irisConfigPath, 'utf-8').split('\n');
+  }
+
+  const setProperty = (key, value) => {
+    const lineIndex = lines.findIndex((l) => l.startsWith(`${key}=`));
+    if (lineIndex === -1) {
+      lines.push(`${key}=${value}`);
+    } else {
+      lines[lineIndex] = `${key}=${value}`;
+    }
+  };
+
+  setProperty('shaderPack', fileName);
+  setProperty('enableShaders', 'true');
+
+  fs.mkdirSync(path.dirname(irisConfigPath), { recursive: true });
+  fs.writeFileSync(irisConfigPath, lines.join('\n'), 'utf-8');
 }
 
 module.exports = { fetchManifest, syncMods, sha1File };

@@ -1,5 +1,5 @@
 {
-  "modpackVersion": "6.5.1",
+  "modpackVersion": "6.6.0",
   "minecraft": {
     "version": "1.21.1",
     "type": "release",
@@ -55,6 +55,19 @@
       "path": "config/fancymenu/assets/menu_background.jpg",
       "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/src/renderer/assets/background.jpg",
       "sha1": "a702df1e8bc1d04825971eed705d6327e9f80862"
+    },
+    {
+      "name": "Shader BSL v10.1.5",
+      "path": "shaderpacks/BSL_v10.1.5.zip",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/shaderpacks/BSL_v10.1.5.zip",
+      "sha1": "49bed4894881b22fa680b97504f0c3265bafbcbc"
+    },
+    {
+      "name": "Shader Complementary Reimagined r5.9",
+      "path": "shaderpacks/ComplementaryReimagined_r5.9.zip",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/shaderpacks/ComplementaryReimagined_r5.9.zip",
+      "sha1": "90c08f60ac5db0ef07bc029452b8cd4cdd26ee1a",
+      "activateShader": true
     }
   ],
   "archives": [
