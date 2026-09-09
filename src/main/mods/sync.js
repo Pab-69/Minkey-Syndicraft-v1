@@ -254,7 +254,58 @@ async function syncMods(manifestUrl, onProgress) {
 
   writeLock(currentPaths);
 
+  // Active automatiquement les resource packs du manifest dans les options
+  // du joueur (Minecraft ne les active jamais tout seul, meme telecharges).
+  // Best-effort : n'importe quel souci ici ne doit jamais faire echouer la
+  // synchronisation des mods, qui est la partie vraiment critique.
+  for (const file of manifest.files) {
+    if (file.path.startsWith('resourcepacks/') && file.path.toLowerCase().endsWith('.zip')) {
+      try {
+        enableResourcePack(instanceDir, path.basename(file.path));
+      } catch {
+        // ignore : au pire le joueur l'active lui-meme une fois dans les options
+      }
+    }
+  }
+
   return { manifest, updated: total, removed: toRemove.length };
+}
+
+// Ajoute un resource pack a la liste "resourcePacks" des options du joueur
+// (format Minecraft : identifiant "file/<nom-du-zip>") s'il n'y est pas deja.
+// Ne touche a rien d'autre dans options.txt, et n'ecrase jamais un format
+// inattendu (mieux vaut laisser le joueur l'activer a la main que corrompre
+// son fichier).
+function enableResourcePack(instanceDir, fileName) {
+  const identifier = `file/${fileName}`;
+  const optionsPath = path.join(instanceDir, 'options.txt');
+
+  if (!fs.existsSync(optionsPath)) {
+    // Premier lancement de l'instance : Minecraft n'a jamais tourne, il n'y
+    // a donc pas encore de reglages du joueur a preserver.
+    fs.writeFileSync(optionsPath, `resourcePacks:["vanilla","${identifier}"]\n`, 'utf-8');
+    return;
+  }
+
+  const lines = fs.readFileSync(optionsPath, 'utf-8').split('\n');
+  const lineIndex = lines.findIndex((l) => l.startsWith('resourcePacks:'));
+
+  if (lineIndex === -1) {
+    lines.push(`resourcePacks:["vanilla","${identifier}"]`);
+  } else {
+    let packs;
+    try {
+      packs = JSON.parse(lines[lineIndex].slice('resourcePacks:'.length));
+      if (!Array.isArray(packs)) throw new Error('resourcePacks invalide');
+    } catch {
+      return;
+    }
+    if (packs.includes(identifier)) return;
+    packs.push(identifier);
+    lines[lineIndex] = `resourcePacks:${JSON.stringify(packs)}`;
+  }
+
+  fs.writeFileSync(optionsPath, lines.join('\n'), 'utf-8');
 }
 
 module.exports = { fetchManifest, syncMods, sha1File };
