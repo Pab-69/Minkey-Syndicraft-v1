@@ -1,5 +1,5 @@
 {
-  "modpackVersion": "6.6.0",
+  "modpackVersion": "6.7.0",
   "minecraft": {
     "version": "1.21.1",
     "type": "release",
@@ -43,6 +43,12 @@
       "path": "mods/robotnpcs-1.0.0.jar",
       "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/robotnpcs-1.0.0.jar",
       "sha1": "04c4d96ea45a2908beb5fa11509272b9424c9690"
+    },
+    {
+      "name": "Inventory Tweaks Refoxed",
+      "path": "mods/invtweaks-1.21.1-1.3.2.jar",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/invtweaks-1.21.1-1.3.2.jar",
+      "sha1": "76969e26520ab060d51515757db25282bed71b10"
     },
     {
       "name": "Resource pack Minkey Syndicraft (menu principal)",
