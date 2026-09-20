@@ -1,5 +1,5 @@
 {
-  "modpackVersion": "6.8.0",
+  "modpackVersion": "6.9.0",
   "minecraft": {
     "version": "1.21.1",
     "type": "release",
@@ -51,10 +51,10 @@
       "sha1": "76969e26520ab060d51515757db25282bed71b10"
     },
     {
-      "name": "Cobblemon: Ride On!",
-      "path": "mods/cobbleride-neoforge-0.2.1-1.21.1.jar",
-      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/cobbleride-neoforge-0.2.1-1.21.1.jar",
-      "sha1": "585a76b79a095009ad90edf394bc735681fd9389"
+      "name": "Cobblemon Journey Mounts",
+      "path": "mods/cobblemonjourneymounts-1.7.1.jar",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/cobblemonjourneymounts-1.7.1.jar",
+      "sha1": "253fefa941016d42f1e6eb66c63816f5273247e7"
     },
     {
       "name": "Resource pack Minkey Syndicraft (menu principal)",
