@@ -1,5 +1,5 @@
 {
-  "modpackVersion": "6.9.0",
+  "modpackVersion": "6.10.0",
   "minecraft": {
     "version": "1.21.1",
     "type": "release",
@@ -57,6 +57,12 @@
       "sha1": "253fefa941016d42f1e6eb66c63816f5273247e7"
     },
     {
+      "name": "Cobblemon: Shiny & Legendary Fossils (v2, fossiles legendaires actifs)",
+      "path": "mods/shinyfossils-0.9.3-legendary-v2.jar",
+      "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/shinyfossils-0.9.3-legendary-v2.jar",
+      "sha1": "ab246deead3b033692f381482a6e29df29e52987"
+    },
+    {
       "name": "Resource pack Minkey Syndicraft (menu principal)",
       "path": "resourcepacks/MinkeySyndicraft.zip",
       "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/resourcepacks/MinkeySyndicraft.zip",
@@ -91,6 +97,7 @@
     }
   ],
   "excludes": [
-    "mods/tims-ultimately-comprehensive-cobblemon-edits-of-destiny-1.6.1-4.zip"
+    "mods/tims-ultimately-comprehensive-cobblemon-edits-of-destiny-1.6.1-4.zip",
+    "mods/shinyfossils-0.9.3.jar"
   ]
 }
