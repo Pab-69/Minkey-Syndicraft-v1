@@ -1,5 +1,5 @@
 {
-  "modpackVersion": "6.10.0",
+  "modpackVersion": "6.11.0",
   "minecraft": {
     "version": "1.21.1",
     "type": "release",
@@ -61,6 +61,18 @@
       "path": "mods/shinyfossils-0.9.3-legendary-v2.jar",
       "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/shinyfossils-0.9.3-legendary-v2.jar",
       "sha1": "ab246deead3b033692f381482a6e29df29e52987"
+    },
+    {
+      "name": "Decocraft",
+      "path": "mods/decocraft-3.0.11-1.21.1-neoforge.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/asset-mod-4/decocraft-3.0.11-1.21.1-neoforge.jar",
+      "sha1": "6704940aa352d1acf3cf9362e5ef8dd4e65b563c"
+    },
+    {
+      "name": "ModernDecorMod",
+      "path": "mods/mdm-26.9-neoforge-1.21.1.jar",
+      "url": "https://github.com/Pab-69/Minkey-Syndicraft-v1/releases/download/asset-mod-4/mdm-26.9-neoforge-1.21.1.jar",
+      "sha1": "75d980e360f5cb8aa051026f5d0b06c775f6ab65"
     },
     {
       "name": "Resource pack Minkey Syndicraft (menu principal)",
