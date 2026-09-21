@@ -1,5 +1,5 @@
 {
-  "modpackVersion": "6.12.0",
+  "modpackVersion": "6.12.1",
   "minecraft": {
     "version": "1.21.1",
     "type": "release",
@@ -60,7 +60,7 @@
       "name": "Cobblemon: Shiny & Legendary Fossils (Patched, 0.9.31)",
       "path": "mods/shinyfossils-0.9.31.jar",
       "url": "https://raw.githubusercontent.com/Pab-69/Minkey-Syndicraft-v1/main/mods/shinyfossils-0.9.31.jar",
-      "sha1": "ef87639cf485f25c3968804ebb66fe8971330fd9"
+      "sha1": "09e211ca3ace97b83c353cf7eb86ff1eb09a9b43"
     },
     {
       "name": "Decocraft",
